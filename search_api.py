@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify, send_from_directory
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 import google.generativeai as genai
 import numpy as np
 import json
@@ -58,6 +58,14 @@ def cosine_similarity(vec_a, vec_b):
         return 0.0
         
     return dot_product / (norm_a * norm_b)
+
+# Add this helper function to collect all texts for an author
+def get_author_texts(author_id):
+    texts = []
+    for item in vector_database:
+        if author_id in item['author_ids']:
+            texts.append(item['text'])
+    return texts
 
 @app.route('/search', methods=['POST'])
 def search():
@@ -125,6 +133,46 @@ def health():
 @app.route('/')
 def serve_force_graph():
     return send_from_directory('static', 'force_graph.html')
+
+@app.route('/explain_match', methods=['POST', 'OPTIONS'])
+@cross_origin(origins="*")
+def explain_match():
+    if request.method == 'OPTIONS':
+        return '', 200
+    data = request.json
+    query = data.get('query')
+    author_id = data.get('author_id')
+
+    # Gather all research texts for this author
+    author_texts = get_author_texts(author_id)
+    if not author_texts:
+        return jsonify({'explanation': "No research texts found for this professor."})
+
+    # Compose a prompt for Gemini
+    prompt = (
+        "You are an expert academic assistant. Your output will be shown on a card for a specific professor. "
+        "Always make an effort to connect the user's search query to the professor's research interests, even if the connection is not obvious. "
+        "Be creative and imaginative in finding possible links between the search and the research. "
+        "Do NOT simply say there is no similarity; instead, try to find any plausible or tangential connection. "
+        "Only explain why THIS professor matches the user's search, quoting or paraphrasing relevant research below. "
+        "Do NOT suggest searching for other professors or topics. "
+        "Be friendly, helpful, and use first or second person (e.g., 'You might be interested in this professor's work...'). "
+        f"\n\nUser's search: '{query}'\n"
+        f"Professor's research abstracts:\n"
+        + "\n---\n".join(author_texts[:5]) +
+        "\n\nIn 2-3 sentences, explain to the user why this professor matches their search, quoting or paraphrasing relevant research."
+    )
+
+    # Call Gemini
+    try:
+        model = genai.GenerativeModel('models/gemini-1.5-pro')
+        response = model.generate_content(prompt)
+        explanation = response.text
+    except Exception as e:
+        print(f"Error calling Gemini: {e}")
+        explanation = "Could not generate explanation at this time."
+
+    return jsonify({'explanation': explanation})
 
 if __name__ == '__main__':
     print("Starting search API server...")

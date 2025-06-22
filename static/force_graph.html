@@ -477,6 +477,8 @@
                 let targetNode = graphData.nodes.find(n => n.id === targetId);
                 return targetNode && targetNode.color ? targetNode.color : defaultColor;
             });
+            // Reload the graph to reset camera and view
+            initializeGraph();
         }
         
         // Initialize everything
@@ -520,12 +522,18 @@
         async function showAbstractModal(result) {
             const modal = document.getElementById('abstract-modal');
             const content = document.getElementById('abstract-modal-content');
+            const node = graphData.nodes.find(n => n.id === result.author_id);
+            const profName = node ? node.name : result.author_id;
             content.innerHTML = `<span class="close-btn" onclick="closeAbstractModal()">&times;</span>
-                <div style="margin-bottom:8px; color:#fff; font-size:1em; font-weight:normal;">Loading explanation...</div>`;
+                <div style="margin-bottom:12px; text-align:left;">
+                    <a href="https://scholar.google.com/citations?user=${result.author_id}" target="_blank" style="color:#82caff; text-decoration:underline; font-size:1.1em; font-family:'JetBrains Mono', monospace; font-weight:normal;">${profName}</a>
+                </div>
+                <div style="margin-bottom:8px; color:#fff; font-size:1em; font-weight:normal; text-align:left;">Loading explanation...</div>
+                <div id="zoom-to-node-btn-container" style="margin-top:24px; text-align:left;"></div>`;
             modal.style.display = 'flex';
 
             console.log("Requesting Gemini explanation for:", result.author_id, lastSearchQuery);
-            const response = await fetch('http://localhost:5000/explain_match', {
+            const response = await fetch('http://127.0.0.1:5000/explain_match', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ query: lastSearchQuery, author_id: result.author_id })
@@ -534,12 +542,36 @@
             const data = await response.json();
             console.log("Gemini explanation:", data.explanation);
             content.innerHTML = `<span class="close-btn" onclick="closeAbstractModal()">&times;</span>
-                <div style="margin-bottom:8px; color:#fff; font-size:1em; font-weight:normal;">${result.profName}</div>
-                <div style="margin-bottom:10px;"><b>Why this professor matches your search:</b></div>
-                <div style="font-size:1em;line-height:1.5;">${data.explanation}</div>
-                <div style="margin-top:18px;">
-                    <a href="https://scholar.google.com/citations?user=${result.author_id}" target="_blank" style="color:#1976d2;text-decoration:underline;">View Google Scholar Profile</a>
-                </div>`;
+                <div style="margin-bottom:12px; text-align:left;">
+                    <a href="https://scholar.google.com/citations?user=${result.author_id}" target="_blank" style="color:#82caff; text-decoration:underline; font-size:1.1em; font-family:'JetBrains Mono', monospace; font-weight:normal;">${profName}</a>
+                </div>
+                <div style="font-size:1em;line-height:1.5; text-align:left;">${data.explanation}</div>
+                <div id="zoom-to-node-btn-container" style="margin-top:24px; text-align:left;"></div>`;
+
+            // Add the zoom button
+            const btnContainer = document.getElementById('zoom-to-node-btn-container');
+            if (btnContainer) {
+                btnContainer.innerHTML = `<button id="zoom-to-node-btn" style="background:#1976d2;color:#fff;border:none;padding:8px 18px;border-radius:5px;cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:1em;">Zoom to Professor on Graph</button>`;
+                document.getElementById('zoom-to-node-btn').onclick = function() {
+                    zoomToNode(result.author_id);
+                    closeAbstractModal();
+                };
+            }
+        }
+
+        // Zoom to node function
+        function zoomToNode(nodeId) {
+            if (!Graph || !graphData) return;
+            const node = graphData.nodes.find(n => n.id === nodeId);
+            if (!node) return;
+            // Move the camera to focus on the node
+            const distance = 300; // how far the camera should be from the node
+            const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
+            Graph.cameraPosition(
+                { x: node.x * distRatio, y: node.y * distRatio, z: node.z * distRatio },
+                { x: node.x, y: node.y, z: node.z },
+                1000
+            );
         }
 
         function closeAbstractModal() {
