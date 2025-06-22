@@ -1,0 +1,1098 @@
+[
+  {
+    "name": "Sergey Levine",
+    "interests": [
+      "artificial intelligence",
+      "intelligent systems and robotics"
+    ]
+  },
+  {
+    "name": "Trevor Darrell",
+    "interests": [
+      "artificial intelligence",
+      "intelligent systems and robotics",
+      "computer vision"
+    ]
+  },
+  {
+    "name": "Adam Yala",
+    "interests": [
+      "artificial intelligence",
+      "health"
+    ]
+  },
+  {
+    "name": "Dawn Song",
+    "interests": [
+      "privacy",
+      "computer security",
+      "artificial intelligence"
+    ]
+  },
+  {
+    "name": "Benjamin Recht",
+    "interests": [
+      "machine learning",
+      "data science",
+      "artificial intelligence"
+    ]
+  },
+  {
+    "name": "Jiantao Jiao",
+    "interests": [
+      "artificial intelligence",
+      "control and intelligent systems and robotics",
+      "communications and networking"
+    ]
+  },
+  {
+    "name": "Jacob Steinhardt",
+    "interests": [
+      "artificial intelligence",
+      "machine learning"
+    ]
+  },
+  {
+    "name": "Pieter Abbeel",
+    "interests": [
+      "robotics",
+      "machine learning",
+      "artificial intelligence",
+      "Deep Learning"
+    ]
+  },
+  {
+    "name": "Joseph Gonzalez",
+    "interests": [
+      "artificial intelligence",
+      "database management systems"
+    ]
+  },
+  {
+    "name": "Ahmed Alaa",
+    "interests": [
+      "machine learning and artificial intelligence",
+      "health care",
+      "statistics"
+    ]
+  },
+  {
+    "name": "Xiaoyu (Rayne) Zheng",
+    "interests": [
+      "additive manufacturing",
+      "metamaterials",
+      "robotics",
+      "antenna",
+      "artificial intelligence"
+    ]
+  },
+  {
+    "name": "Christian Borgs",
+    "interests": [
+      "theoretical computer science",
+      "probability theory",
+      "combinatorics",
+      "complex networks",
+      "statistical physics",
+      "artificial intelligence",
+      "applications of artificial intelligence and machine learning in engineering and sciences"
+    ]
+  },
+  {
+    "name": "Anil Aswani",
+    "interests": [
+      "machine learning and artificial intelligence",
+      "precision health",
+      "optimization",
+      "statistics"
+    ]
+  },
+  {
+    "name": "Anca Dragan",
+    "interests": [
+      "robotics",
+      "human-robot interaction",
+      "human-compatible artificial intelligence"
+    ]
+  },
+  {
+    "name": "Matei Zaharia",
+    "interests": [
+      "operating systems & networking",
+      "artificial intelligence",
+      "database management systems"
+    ]
+  },
+  {
+    "name": "Deirdre Mulligan",
+    "interests": [
+      "information policy",
+      "law",
+      "privacy",
+      "security",
+      "machine learning and artificial intelligence"
+    ]
+  },
+  {
+    "name": "Negar Mehr",
+    "interests": [
+      "robotics",
+      "control theory",
+      "artificial intelligence",
+      "game theory",
+      "machine learning"
+    ]
+  },
+  {
+    "name": "Jingshen Wang",
+    "interests": [
+      "precision medicine",
+      "causal inference",
+      "adaptive experiment",
+      "machine learning and artificial intelligence"
+    ]
+  },
+  {
+    "name": "Colleen Chien",
+    "interests": [
+      "artificial intelligence",
+      "intellectual property law",
+      "law and technology",
+      "criminal justice"
+    ]
+  },
+  {
+    "name": "Stuart J. Russell",
+    "interests": [
+      "artificial intelligence",
+      "computational biology",
+      "algorithms",
+      "machine learning",
+      "real-time decision-making",
+      "probabilistic reasoning"
+    ]
+  },
+  {
+    "name": "Alexei Efros",
+    "interests": [
+      "computer vision",
+      "computer graphics",
+      "computational photography",
+      "machine learning",
+      "artificial intelligence"
+    ]
+  },
+  {
+    "name": "Jaijeet Roychowdhury",
+    "interests": [
+      "artificial intelligence",
+      "cyber-physical systems and design automation",
+      "computer architecture & engineering"
+    ]
+  },
+  {
+    "name": "Gopala Krishna Anumanchipalli",
+    "interests": [
+      "biosystems and computational biology",
+      "artificial intelligence",
+      "cyber-physical systems and design automation",
+      "human-computer interaction",
+      "signal processing",
+      "intelligent systems and robotics"
+    ]
+  },
+  {
+    "name": "Mengjie Yu",
+    "interests": [
+      "physical electronics",
+      "artificial intelligence",
+      "integrated circuits",
+      "micro/nano electro mechanical systems"
+    ]
+  },
+  {
+    "name": "Ying Cui",
+    "interests": [
+      "continuous optimization",
+      "optimization under uncertainty",
+      "statistical estimations",
+      "machine learning",
+      "artificial intelligence"
+    ]
+  },
+  {
+    "name": "Alane Suhr",
+    "interests": [
+      "artificial intelligence",
+      "natural language processing",
+      "machine learning",
+      "computer vision",
+      "computational linguistics"
+    ]
+  },
+  {
+    "name": "Nika Haghtalab",
+    "interests": [
+      "artificial intelligence",
+      "machine learning",
+      "theoretical computer science",
+      "game theory and mechanism design"
+    ]
+  },
+  {
+    "name": "Kyle Steinfeld",
+    "interests": [
+      "design computation",
+      "architectural representation",
+      "design methods",
+      "Generative AI",
+      "artificial intelligence",
+      "creativity",
+      "ideation and creativity"
+    ]
+  },
+  {
+    "name": "Sonia Katyal",
+    "interests": [
+      "artificial intelligence",
+      "law and technology",
+      "intellectual property law",
+      "contemporary art and law",
+      "gender and sexuality"
+    ]
+  },
+  {
+    "name": "Ren Ng",
+    "interests": [
+      "imaging systems",
+      "computational photography",
+      "graphics",
+      "optics",
+      "computer vision",
+      "human vision",
+      "signal processing",
+      "artificial intelligence"
+    ]
+  },
+  {
+    "name": "Pierluigi Nuzzo",
+    "interests": [
+      "cyber-physical systems and design automation",
+      "control and intelligent systems and robotics",
+      "integrated circuits",
+      "computer architecture & engineering",
+      "artificial intelligence",
+      "power and energy",
+      "programming systems",
+      "security"
+    ]
+  },
+  {
+    "name": "Zaijun Chen",
+    "interests": [
+      "physical electronics",
+      "artificial intelligence",
+      "computer architecture & engineering",
+      "information / data / network / communication science",
+      "integrated circuits"
+    ]
+  },
+  {
+    "name": "Grace Gu",
+    "interests": [
+      "Composites",
+      "additive manufacturing",
+      "in-situ monitoring and process control",
+      "artificial intelligence and machine learning",
+      "bioinspired materials"
+    ]
+  },
+  {
+    "name": "Marcia C. Linn",
+    "interests": [
+      "artificial intelligence",
+      "technology",
+      "learning",
+      "mathematics",
+      "science",
+      "education",
+      "science teaching",
+      "gender equity",
+      "design of learning environments"
+    ]
+  },
+  {
+    "name": "Michael Jordan",
+    "interests": [
+      "computer science",
+      "artificial intelligence",
+      "computational biology",
+      "statistics",
+      "machine learning",
+      "electrical engineering",
+      "applied statistics",
+      "optimization"
+    ]
+  },
+  {
+    "name": "Tejas Narechania",
+    "interests": [
+      "administrative law",
+      "antitrust",
+      "artificial intelligence",
+      "intellectual property",
+      "law and technology",
+      "privacy and cybersecurity",
+      "telecommunications law",
+      "internet technology"
+    ]
+  },
+  {
+    "name": "Ryan Tibshirani",
+    "interests": [
+      "statistical computing",
+      "applications in public health",
+      "high-dimensional data analysis",
+      "nonparametric inference",
+      "artificial intelligence",
+      "machine learning"
+    ]
+  },
+  {
+    "name": "Jennifer Listgarten",
+    "interests": [
+      "artificial intelligence",
+      "machine learning",
+      "computational biology",
+      "protein engineering",
+      "statistical design of experiments",
+      "statistical machine learning",
+      "experimental design"
+    ]
+  },
+  {
+    "name": "Gašper Beguš",
+    "interests": [
+      "computational linguistics",
+      "machine learning",
+      "artificial intelligence",
+      "Generative AI",
+      "Deep Learning",
+      "speech processing",
+      "NLP",
+      "phonology",
+      "articulatory and acoustic phonetics",
+      "historical linguistics",
+      "Indo-European linguistics"
+    ]
+  },
+  {
+    "name": "Cathryn Carson",
+    "interests": [
+      "science and society",
+      "data science",
+      "ethics",
+      "artificial intelligence",
+      "history of science and technology",
+      "history of physics",
+      "nuclear waste",
+      "intellectual history",
+      "interdisciplinarity"
+    ]
+  },
+  {
+    "name": "Niloufar Salehi",
+    "interests": [
+      "computer-mediated communication",
+      "human-computer interaction",
+      "artificial intelligence",
+      "community-engaged research/scholarship",
+      "research practice partnership",
+      "social justice research"
+    ]
+  },
+  {
+    "name": "William (Bill) D. Thompson",
+    "interests": [
+      "cognition",
+      "cognitive science",
+      "artificial intelligence",
+      "learning",
+      "Problem solving",
+      "Reasoning",
+      "decision-making",
+      "Bayesian statistics",
+      "natural language processing",
+      "machine learning",
+      "computational modeling",
+      "collective decision-making",
+      "social networks"
+    ]
+  },
+  {
+    "name": "David Bates",
+    "interests": [
+      "artificial intelligence",
+      "enlightenment",
+      "early Modern European intellectual history",
+      "20th century European and American intellectual history",
+      "history and theory of media and technology",
+      "history of political thought"
+    ]
+  },
+  {
+    "name": "Nilah Ioannidis",
+    "interests": [
+      "computational biology",
+      "machine learning",
+      "artificial intelligence",
+      "genomics",
+      "personal genome interpretation",
+      "precision health",
+      "rare diseases",
+      "statistical genetics",
+      "molecular biology",
+      "biophysics"
+    ]
+  },
+  {
+    "name": "Anant Sahai",
+    "interests": [
+      "machine learning",
+      "artificial intelligence",
+      "information theory",
+      "communications theory",
+      "wireless communication",
+      "cognitive radio",
+      "distributed control",
+      "spectrum sensing",
+      "spectrum sharing",
+      "spectrum policy",
+      "power consumption in communications systems"
+    ]
+  },
+  {
+    "name": "Alice M. Agogino",
+    "interests": [
+      "intelligent learning systems",
+      "information retrieval and data mining",
+      "multiobjective and strategic product design",
+      "nonlinear optimization",
+      "probabilistic modeling",
+      "intelligent control and manufacturing",
+      "sensor validation and fusion and diagnostics",
+      "wireless sensor networks",
+      "multimedia and computer-aided design",
+      "design databases",
+      "design theory and methods",
+      "MEMS Synthesis and CAD",
+      "artificial intelligence and decision and expert systems",
+      "gender equity"
+    ]
+  },
+  {
+    "name": "Zachary Pardos",
+    "interests": [
+      "knowledge representation",
+      "adaptive learning",
+      "artificial intelligence",
+      "learning analytics",
+      "Recommender Systems",
+      "higher education",
+      "data science",
+      "Digital Learning Environments",
+      "cognitive modeling",
+      "Big Data in Education",
+      "Knowledge Tracing",
+      "Formative Assessment",
+      "intelligent tutoring systems",
+      "Online Learning",
+      "psychometrics",
+      "Educational Data Mining"
+    ]
+  },
+  {
+    "name": "S. Shankar Sastry",
+    "interests": [
+      "embedded and cyberphysical systems",
+      "artificial intelligence",
+      "AR/VR",
+      "computer science",
+      "robotics",
+      "arial robots",
+      "cybersecurity",
+      "cyber defense",
+      "homeland defense",
+      "nonholonomic systems",
+      "control of hybrid systems",
+      "sensor networks",
+      "interactive visualization",
+      "robotic telesurgery",
+      "rapid prototyping"
+    ]
+  },
+  {
+    "name": "Ronald Rael",
+    "interests": [
+      "3D printed buildings",
+      "additive manufacturing",
+      "earth architecture",
+      "mud",
+      "artificial intelligence",
+      "U.S.-Mexico border wall",
+      "arid landscapes",
+      "ranching",
+      "acequias",
+      "alipne deserts",
+      "ceramics",
+      "rural architecture",
+      "ruralism",
+      "animation",
+      "digital modeling",
+      "furry buildings",
+      "unnatural materials",
+      "rasquachetecture"
+    ]
+  },
+  {
+    "name": "James O'Brien",
+    "interests": [
+      "computer graphics",
+      "fluid dynamics",
+      "computer simulation",
+      "physically based animation",
+      "finite element simulation",
+      "human perception",
+      "image forensics",
+      "video forensics",
+      "computer animation",
+      "special effects for film",
+      "video game technology",
+      "motion capture",
+      "machine learning",
+      "facial animation",
+      "artificial intelligence",
+      "geometric algorithms",
+      "geometric design and modeling"
+    ]
+  },
+  {
+    "name": "Ron E. Hassner",
+    "interests": [
+      "international relations",
+      "international security",
+      "religion and conflict",
+      "Israel",
+      "military intelligence",
+      "torture",
+      "interrogation"
+    ]
+  },
+  {
+    "name": "Matthew B. Francis",
+    "interests": [
+      "materials chemistry",
+      "drug delivery",
+      "organic chemistry",
+      "Protein modification",
+      "artificial photosynthesis",
+      "water purification"
+    ]
+  },
+  {
+    "name": "Tony M. Keaveny",
+    "interests": [
+      "biomechanics of bone",
+      "orthopaedic biomechanics",
+      "design of artificial joints",
+      "osteoporosis",
+      "finite element modeling",
+      "clinical biomechanics"
+    ]
+  },
+  {
+    "name": "Erin Michelle Turner Kerrison",
+    "interests": [
+      "crime",
+      "criminal justice",
+      "drug control",
+      "gender",
+      "health disparities",
+      "inequality",
+      "law",
+      "mass incarceration",
+      "mental health",
+      "mixed methods",
+      "policing",
+      "policy",
+      "poverty",
+      "prisons",
+      "punishment",
+      "race",
+      "risk",
+      "reentry",
+      "substance abuse",
+      "trauma",
+      "violence",
+      "race and gender",
+      "artificial intelligence",
+      "data science",
+      "social work and education",
+      "social work",
+      "public impact research/scholarship",
+      "social justice research"
+    ]
+  },
+  {
+    "name": "Peidong Yang",
+    "interests": [
+      "materials chemistry",
+      "solid state chemistry",
+      "nanoscience",
+      "energy science",
+      "semiconductor nanowires",
+      "nanophotonics",
+      "artificial photosynthesis",
+      "electrochemistry",
+      "photoelectrochemistry",
+      "electrocatalysis",
+      "photocatalysis"
+    ]
+  },
+  {
+    "name": "Robert J. Full",
+    "interests": [
+      "energetics",
+      "comparative biomechanics",
+      "arthropod",
+      "adhesion",
+      "comparative physiology",
+      "locomotion",
+      "neuromechanics",
+      "biomimicry",
+      "biological inspiration",
+      "reptile",
+      "gecko",
+      "amphibian",
+      "robots",
+      "artificial muscles"
+    ]
+  },
+  {
+    "name": "Shaofan Li",
+    "interests": [
+      "applications of artificial intelligence and machine learning in engineering and sciences",
+      "structural mechanics",
+      "computational mechanics",
+      "computational materials",
+      "computational mechanics and computational physics",
+      "finite element methods and meshfree particle methods",
+      "ferroelectric and piezoelectric materials",
+      "atomistic simulation and multiscale simulations",
+      "nonlinear continuum mechanics",
+      "soft matter mechanics",
+      "wave propagations",
+      "modeling and simulation of fracture",
+      "dislocations",
+      "modeling and simulation of material failures",
+      "nano-mechanics",
+      "bio-mechanics and bio-physics",
+      "cellular mechanics",
+      "micromechanics & composite materials",
+      "mechanics and physics of amorphous materials"
+    ]
+  },
+  {
+    "name": "Michael W. Zuerch",
+    "interests": [
+      "collective phenomena in material",
+      "chemical material dynamics in surfaces and interfaces",
+      "symmetry-broken states and their emergence in condensed-phase systems",
+      "dynamical properties in artificial and correlated superlattices",
+      "ultrafast spectroscopy from THz to X-rays"
+    ]
+  },
+  {
+    "name": "Kyriakos Komvopoulos",
+    "interests": [
+      "contact mechanics",
+      "fracture and fatigue of engineering materials",
+      "finite element modeling of surface contact and machining",
+      "thin-film processing and characterization",
+      "adhesion and fatigue of MEMS devices",
+      "plasma-assisted surface functionalization of biomaterials",
+      "surface patterning for cell adhesion and growth control",
+      "mechanics & tribology of magnetic recording devices",
+      "microfibrous scaffolds for tissue engineering",
+      "tribology and mechanics of artificial joints",
+      "mechanical metamaterials"
+    ]
+  },
+  {
+    "name": "Claire Tomlin",
+    "interests": [
+      "electrical engineering",
+      "computer sciences",
+      "control",
+      "biosystems",
+      "control theory",
+      "intelligent systems",
+      "robotics",
+      "hybrid and embedded systems",
+      "biological cell networks"
+    ]
+  },
+  {
+    "name": "Murat Arcak",
+    "interests": [
+      "control",
+      "intelligent systems and robotics",
+      "Cyber-Physical Systems",
+      "networks",
+      "transportation",
+      "applications of system theory to aerospace problems",
+      "Systems and Synthetic Biology"
+    ]
+  },
+  {
+    "name": "Michael Ranney",
+    "interests": [
+      "Problem solving",
+      "knowledge representation & reorganization",
+      "explanatory coherence & inference",
+      "conceptual change",
+      "societal implications",
+      "science instruction",
+      "global climate change psychology",
+      "numeracy in journalism",
+      "naïve/informal physics",
+      "computational models of cognition",
+      "perceptual-cognitive interactions",
+      "intelligent tutoring systems",
+      "understandings of biological evolution",
+      "Reasoning",
+      "qualitative  & quantitative thinking"
+    ]
+  },
+  {
+    "name": "Roberto Horowitz",
+    "interests": [
+      "adaptive control",
+      "machine learning",
+      "learning and nonlinear control",
+      "control of robot manipulators",
+      "computer mechatronics systems",
+      "micro-electromechanical systems (MEMS)",
+      "intelligent vehicle",
+      "highways systems"
+    ]
+  },
+  {
+    "name": "Weiqiang Zhu",
+    "interests": [
+      "earthquake physics",
+      "geophysical signal discovery"
+    ]
+  },
+  {
+    "name": "Courtney Dressing",
+    "interests": [
+      "exoplanets",
+      "stars",
+      "habitability",
+      "astrobiology"
+    ]
+  },
+  {
+    "name": "Alessandra Lanzara",
+    "interests": [
+      "materials science",
+      "ultrafast science",
+      "quantum materials",
+      "sustainable materials",
+      "topological phases of matter"
+    ]
+  },
+  {
+    "name": "Joshua Bloom",
+    "interests": [
+      "machine learning",
+      "gamma-ray bursts",
+      "supernovae",
+      "time-domain astronomy",
+      "data-driven discovery"
+    ]
+  },
+  {
+    "name": "Karen Nakamura",
+    "interests": [
+      "disability",
+      "Japan",
+      "disability studies",
+      "queer studies",
+      "LGBTQ communities",
+      "social cultural anthropology",
+      "medical and psychiatric anthropology",
+      "community-engaged research/scholarship",
+      "community-based research partnerships"
+    ]
+  },
+  {
+    "name": "Daniela Kaufer",
+    "interests": [
+      "neuroscience",
+      "aging",
+      "dementia",
+      "stress",
+      "epilepsy",
+      "traumatic brain injury",
+      "blood brain barrier",
+      "resilience",
+      "trauma",
+      "psychedelics",
+      "glia",
+      "myelin"
+    ]
+  },
+  {
+    "name": "Anastassia Fedyk",
+    "interests": [
+      "finance",
+      "behavioral economics",
+      "labor and finance",
+      "role of information technology in financial markets"
+    ]
+  },
+  {
+    "name": "Kirk Bansak",
+    "interests": [
+      "causal inference",
+      "experimental design and analysis",
+      "algorithmic decision-making",
+      "refugee resettlement and asylum politics",
+      "public opinion",
+      "survey methodology"
+    ]
+  },
+  {
+    "name": "Mohammad Reza Kaazempur Mofrad",
+    "interests": [
+      "molecular cell biomechanics",
+      "bacterial communities / microbiomes",
+      "deep learning for biology and medicine"
+    ]
+  },
+  {
+    "name": "Jose M. Carmena",
+    "interests": [
+      "brain-machine interfaces",
+      "neural ensemble computation",
+      "neuroprosthetics",
+      "sensorimotor learning and control"
+    ]
+  },
+  {
+    "name": "John F. Hartwig",
+    "interests": [
+      "inorganic chemistry",
+      "organometallic chemistry",
+      "catalysis",
+      "organic chemistry"
+    ]
+  },
+  {
+    "name": "Masayoshi Tomizuka",
+    "interests": [
+      "robotics",
+      "mechatronics",
+      "control systems theory",
+      "digital control",
+      "dynamic systems",
+      "mechanical vibrations",
+      "adaptive and optimal control",
+      "motion control"
+    ]
+  },
+  {
+    "name": "Alberto Sangiovanni-Vincentelli",
+    "interests": [
+      "Cyber-Physical Systems",
+      "System design",
+      "Electronic Design Systems",
+      "embedded system design",
+      "control",
+      "integrated circuits",
+      "theory",
+      "Machine learning applications to Energy Efficient Building and Health"
+    ]
+  },
+  {
+    "name": "Grigory Tikhomirov",
+    "interests": [
+      "bioengineering",
+      "nanofabrication",
+      "nanorobotics",
+      "biosystems and computational biology",
+      "energy",
+      "integrated circuits",
+      "micro/nano electro mechanical systems",
+      "physical electronics"
+    ]
+  },
+  {
+    "name": "Carmine Emanuele Cella",
+    "interests": [
+      "mathematical representation of musical and acoustic signals",
+      "music composition"
+    ]
+  },
+  {
+    "name": "Iris D. Tommelein",
+    "interests": [
+      "lean construction",
+      "lean production",
+      "design management",
+      "sustainability",
+      "supply-chain management",
+      "life-cycle engineering",
+      "civil infrastructure systems",
+      "adaptive project leadership",
+      "engineering project management",
+      "megaproject delivery",
+      "construction process engineering",
+      "integrated project delivery IPD",
+      "building information modeling BIM",
+      "virtual design and construction VDC"
+    ]
+  },
+  {
+    "name": "Hannes Bajohr",
+    "interests": [
+      "digital writing technologies",
+      "language and literature",
+      "German philosophical tradition in the 20th century",
+      "liberal and republican political theory"
+    ]
+  },
+  {
+    "name": "Boubacar Kante",
+    "interests": [
+      "optoelectronics",
+      "quantum optics",
+      "optimization",
+      "Antennas",
+      "Biophysics and Sensing"
+    ]
+  },
+  {
+    "name": "Richard Ivry",
+    "interests": [
+      "cognitive neuroscience",
+      "behavior",
+      "cognition",
+      "brain",
+      "attention",
+      "coordination",
+      "psychology",
+      "motor and perceptual processes in normal and neurologically impaired populations",
+      "temporal processing",
+      "executive control"
+    ]
+  },
+  {
+    "name": "Hannah Stuart",
+    "interests": [
+      "robotics",
+      "dynamics",
+      "design-based research",
+      "exoskeleton systems",
+      "bioinspired robots",
+      "marine systems",
+      "dexterous manipulation",
+      "hands",
+      "grasping",
+      "Mechanism Design",
+      "human-robot interaction"
+    ]
+  },
+  {
+    "name": "Raluca Ada Popa",
+    "interests": [
+      "computer security",
+      "applied cryptography"
+    ]
+  },
+  {
+    "name": "Alastair Iles",
+    "interests": [
+      "chemicals policy and politics",
+      "sustainable food systems",
+      "environmental STS",
+      "sustainability transitions",
+      "sustainability learning and societal change"
+    ]
+  },
+  {
+    "name": "Dennis Baldocchi",
+    "interests": [
+      "biometeorology",
+      "climate change and ecosystems",
+      "biosphere-atmosphere interactions",
+      "agricultural meteorology",
+      "ecosystem ecology",
+      "carbon cycle",
+      "evaporation",
+      "ecohydrology"
+    ]
+  },
+  {
+    "name": "Yaniv Konchitchki",
+    "interests": [
+      "Monetary economics",
+      "macroeconomics",
+      "macro-finance",
+      "Financial-based solutions to world’s grand challenges",
+      "capital markets research",
+      "financial accounting",
+      "FinTech",
+      "financial technology and innovation",
+      "financial statement analysis",
+      "asset pricing",
+      "macro-accounting"
+    ]
+  },
+  {
+    "name": "Timothy Tangherlini",
+    "interests": [
+      "folklore",
+      "Danish culture",
+      "Danish cinema",
+      "Danish literature",
+      "19th and 20th Century Scandinavian literature",
+      "digital humanities",
+      "culture analysis",
+      "machine learning",
+      "networks",
+      "Korean culture",
+      "public impact research/scholarship",
+      "community-engaged research/scholarship"
+    ]
+  },
+  {
+    "name": "Avideh Zakhor",
+    "interests": [
+      "signal processing",
+      "image processing",
+      "computer vision",
+      "Deep Learning"
+    ]
+  },
+  {
+    "name": "Janet Napolitano",
+    "interests": [
+      "education",
+      "leadership and management",
+      "politics"
+    ]
+  }
+]

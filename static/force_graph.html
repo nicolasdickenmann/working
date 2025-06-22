@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berkeley Faculty Network - 3D Force Graph</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: #000;
+            color: white;
+            overflow: hidden;
+        }
+        
+        #wrapper {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+        
+        #graph-container {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+        
+        #ui-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+        }
+        
+        #search-container {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.9);
+            padding: 15px;
+            border-radius: 8px;
+            pointer-events: auto;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        #search-input {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            background: #333;
+            color: white;
+            width: 300px;
+            font-size: 14px;
+        }
+        
+        #search-input::placeholder {
+            color: #ccc;
+        }
+        
+        #search-button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        #search-button:hover {
+            background: #45a049;
+        }
+        
+        #clear-button {
+            background: #f44336;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        #clear-button:hover {
+            background: #da190b;
+        }
+        
+        #search-results {
+            position: absolute;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.9);
+            padding: 15px;
+            border-radius: 8px;
+            max-width: 600px;
+            max-height: 200px;
+            overflow-y: auto;
+            display: none;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            pointer-events: auto;
+        }
+        
+        #search-results h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        
+        #search-results p {
+            margin: 5px 0;
+            padding: 5px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 18px;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            pointer-events: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="graph-container"></div>
+        
+        <div id="ui-overlay">
+            <div id="search-container">
+                <input type="text" id="search-input" placeholder="Search for research topics, papers, or concepts...">
+                <button id="search-button" onclick="performSearch()">Search</button>
+                <button id="clear-button" onclick="clearSearch()">Clear</button>
+            </div>
+            
+            <div id="search-results"></div>
+            
+            <div class="loading" id="loading">Loading network data...</div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/3d-force-graph"></script>
+    <script>
+        // --- COLOR PALETTE ---
+        const bluePalette = [
+          "#0a1e78", "#142b8a", "#1e389c", "#2845ae", "#3252c0",
+          "#3c5fd2", "#467ce4", "#5089f6", "#5a96ff", "#64a3ff",
+          "#6eb0ff", "#78bdff", "#82caff", "#8cd7ff", "#96e4ff",
+          "#a0f1ff", "#aafcff", "#b4ffff", "#c0ffff", "#d6ffff"
+        ];
+        const clickedColor = "#1976d2"; // Special blue for clicked node
+        const defaultColor = "#888";
+
+        let Graph;
+        let vectorDatabase = [];
+        let graphData = null;
+        let searchResults = {};
+        let lastClickedNodeId = null;
+        
+        // Check if ForceGraph3D is available
+        function checkLibrary() {
+            if (typeof ForceGraph3D === 'undefined') {
+                console.error('ForceGraph3D library not loaded. Trying alternative CDN...');
+                // Try alternative CDN
+                const script = document.createElement('script');
+                script.src = 'https://unpkg.com/3d-force-graph@1.72.5/dist/3d-force-graph.min.js';
+                script.onload = () => {
+                    console.log('ForceGraph3D loaded from alternative CDN');
+                    initializeGraph();
+                };
+                script.onerror = () => {
+                    console.error('Failed to load ForceGraph3D from both CDNs');
+                    document.getElementById('loading').innerHTML = 'Error: Could not load 3D Force Graph library. Please check your internet connection.';
+                };
+                document.head.appendChild(script);
+                return false;
+            }
+            console.log('ForceGraph3D library is available');
+            return true;
+        }
+        
+        // Load vector database
+        async function loadVectorDatabase() {
+            try {
+                console.log('Loading vector database...');
+                const response = await fetch('static/vector_database.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                vectorDatabase = await response.json();
+                console.log(`Loaded ${vectorDatabase.length} vector database entries`);
+                
+                // Show a sample entry
+                if (vectorDatabase.length > 0) {
+                    console.log('Sample entry:', vectorDatabase[0]);
+                }
+            } catch (error) {
+                console.error('Error loading vector database:', error);
+                alert('Error loading vector database. Check console for details.');
+            }
+        }
+        
+        // Load the data and initialize the graph
+        async function initializeGraph() {
+            try {
+                // Check if library is loaded
+                if (!checkLibrary()) {
+                    return; // Will be called again when library loads
+                }
+                
+                // Load both datasets
+                await loadVectorDatabase();
+                
+                const response = await fetch('static/forcegraph_data.json');
+                graphData = await response.json();
+                
+                // Set all nodes to default color initially
+                graphData.nodes.forEach(node => node.color = defaultColor);
+                
+                document.getElementById('loading').style.display = 'none';
+                
+                // Initialize the 3D Force Graph
+                Graph = ForceGraph3D()(document.getElementById('graph-container'));
+                Graph.graphData(graphData);
+                Graph.nodeLabel('name');
+                Graph.nodeColor(() => '#ffffff');
+                Graph.nodeRelSize(6);
+                Graph.linkColor(() => '#ffffff');
+                Graph.linkOpacity(0.4);
+                Graph.linkWidth(1);
+                Graph.d3Force('charge').strength(-400);
+                Graph.d3Force('link').distance(100);
+                Graph.onNodeClick(onNodeClick);
+                Graph.onBackgroundClick(() => {
+                    // No color reset needed
+                });
+                
+            } catch (error) {
+                console.error('Error loading data:', error);
+                document.getElementById('loading').innerHTML = 'Error loading data. Please check if forcegraph_data.json exists.';
+            }
+        }
+        
+        // --- SEARCH COLORING ---
+        function colorNodesBySearchResults(results) {
+            // Reset all to default
+            graphData.nodes.forEach(node => node.color = defaultColor);
+            lastClickedNodeId = null;
+
+            // Sort results by similarity descending
+            const sorted = [...results].sort((a, b) => b.similarity - a.similarity);
+            // Assign blue shades to top 20
+            sorted.slice(0, 20).forEach((result, idx) => {
+                const node = graphData.nodes.find(n => n.id === result.author_id);
+                if (node) node.color = bluePalette[idx];
+            });
+
+            Graph.nodeColor(node => node.color);
+        }
+        
+        // --- SEARCH FUNCTION ---
+        async function performSearch() {
+            const query = document.getElementById('search-input').value.trim();
+            if (!query) return;
+            
+            console.log('Performing semantic search for:', query);
+            
+            try {
+                // Call the Flask API for true cosine similarity search
+                const response = await fetch('http://localhost:5000/search', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ query: query })
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                console.log('API response:', data);
+                
+                colorNodesBySearchResults(data.results);
+                displaySearchResults(data.results, data.results);
+                
+            } catch (error) {
+                console.error('Error performing search:', error);
+                alert('Search failed. Make sure the search API is running on port 5000.');
+            }
+        }
+        
+        // --- NODE CLICK HANDLER ---
+        function onNodeClick(node) {
+            // Reset all to default or their search color
+            graphData.nodes.forEach(n => {
+                // If node is in bluePalette, keep it, else reset to default
+                if (!bluePalette.includes(n.color)) n.color = defaultColor;
+            });
+            // Set clicked node to clickedColor
+            node.color = clickedColor;
+            lastClickedNodeId = node.id;
+            Graph.nodeColor(n => n.color);
+        }
+        
+        // --- SEARCH RESULTS DISPLAY (unchanged) ---
+        function displaySearchResults(results, apiResults) {
+            const resultsDiv = document.getElementById('search-results');
+            
+            if (Object.keys(results).length === 0) {
+                resultsDiv.innerHTML = '<p>No results found</p>';
+            } else {
+                let html = '<h4>Top Results (Cosine Similarity):</h4>';
+                apiResults.forEach((result, index) => {
+                    const authorName = graphData.nodes.find(n => n.id === result.author_id)?.name || result.author_id;
+                    html += `<p><strong>${index + 1}. ${authorName}</strong> (${(result.similarity * 100).toFixed(1)}% similarity)</p>`;
+                    html += `<p style="font-size: 12px; color: #ccc; margin-left: 20px;">${result.text}</p>`;
+                });
+                resultsDiv.innerHTML = html;
+            }
+            resultsDiv.style.display = 'block';
+        }
+        
+        // --- CLEAR SEARCH ---
+        function clearSearch() {
+            document.getElementById('search-input').value = '';
+            document.getElementById('search-results').style.display = 'none';
+            // Reset all node colors to default
+            graphData.nodes.forEach(node => node.color = defaultColor);
+            lastClickedNodeId = null;
+            Graph.nodeColor(node => node.color);
+        }
+        
+        // Initialize everything
+        if (checkLibrary()) {
+            initializeGraph();
+        }
+        
+        // Handle Enter key in search input
+        document.getElementById('search-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+        
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (Graph) {
+                Graph.width(window.innerWidth);
+                Graph.height(window.innerHeight);
+            }
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,1292 @@
+{
+  "nodes": [
+    {
+      "id": "UminJoEAAAAJ",
+      "name": "Hani Altwaijry",
+      "level": "input",
+      "papers": [
+        {
+          "title": "Learning to Detect and Match Keypoints with Deep Architectures",
+          "abstract": "Feature detection and description is a pivotal step in many computer vision pipelines. Traditionally, human engineered features have been the main workhorse in this domain. In this paper, we present a novel approach for learning to detect and describe keypoints from images leveraging deep architectures. To allow for a learning based approach, we collect a large-scale dataset of patches with matching multiscale keypoints. The proposed model learns from this vast dataset to identify and describe meaningful keypoints. We evaluate our model for the effectiveness of its learned representations for detecting multiscale keypoints and describing their respective support regions.",
+          "year": 2016,
+          "authors": "Hani Altwaijry and Andreas Veit and Serge Belongie"
+        },
+        {
+          "title": "Learning to match aerial images with deep attentive architectures",
+          "abstract": "Image matching is a fundamental problem in Computer Vision. In the context of feature-based matching, SIFT and its variants have long excelled in a wide array of applications. However, for ultra-wide baselines, as in the case of aerial images captured under large camera rotations, the appearance variation goes beyond the reach of SIFT and RANSAC. In this paper we propose a data-driven, deep learning-based approach that sidesteps local correspondence by framing the problem as a classification task. Furthermore, we demonstrate that local correspondences can still be useful. To do so we incorporate an attention mechanism to produce a set of probable matches, which allows us to further increase performance. We train our models on a dataset of urban aerial imagery consisting ofsame'anddifferent'pairs, collected for this purpose, and characterize the problem via a human study with annotations from Amazon Mechanical Turk. We demonstrate that our models outperform the state-of-the-art on ultra-wide baseline matching and approach human accuracy.",
+          "year": 2016,
+          "authors": "Hani Altwaijry and Eduard Trulls and James Hays and Pascal Fua and Serge Belongie"
+        },
+        {
+          "title": "Relative Ranking of Facial Attractiveness",
+          "abstract": "Automatic evaluation of human facial attractiveness is a challenging problem that has received relatively little attention from the computer vision community. Previous work in this area have posed attractiveness as a classification problem. However, for applications that require fine-grained relationships between objects, learning to rank has been shown to be superior over the direct interpretation of classifier scores as ranks [27]. In this paper, we propose and implement a personalized relative beauty ranking system. Given training data of faces sorted based on a subject's personal taste, we learn how to rank novel faces according to that person's taste. Using a blend of Facial Geometric Relations, HOG, GIST, L*a*b* Color Histograms, and Dense-SIFT + PCA feature types, our system achieves an average accuracy of 63% on pairwise comparisons of novel test faces. We examine the effectiveness of our method \u2026",
+          "year": 2013,
+          "authors": "Hani Altwaijry and Serge Belongie"
+        }
+      ],
+      "paper_count": 3
+    },
+    {
+      "id": "UA9Hb2EAAAAJ",
+      "name": "Andreas Veit",
+      "level": "direct",
+      "papers": [
+        {
+          "title": "How to backdoor federated learning",
+          "abstract": "Federated models are created by aggregating model updates submittedby participants. To protect confidentiality of the training data, the aggregator by design has no visibility into how these updates aregenerated. We show that this makes federated learning vulnerable to amodel-poisoning attack that is significantly more powerful than poisoningattacks that target only the training data. A single or multiple malicious participants can use modelreplacement to introduce backdoor functionality into the joint model, eg, modify an image classifier so that it assigns an attacker-chosenlabel to images with certain features, or force a word predictor tocomplete certain sentences with an attacker-chosen word. We evaluatemodel replacement under different assumptions for the standardfederated-learning tasks and show that it greatly outperformstraining-data poisoning. Federated learning employs secure aggregation to protect confidentialityof participants\u2019 local models and thus cannot detect anomalies inparticipants\u2019 contributions to the joint model. To demonstrate thatanomaly detection would not have been effective in any case, we alsodevelop and evaluate a generic constrain-and-scale technique thatincorporates the evasion of defenses into the attacker\u2019s loss functionduring training.",
+          "year": 2020,
+          "authors": "Eugene Bagdasaryan and Andreas Veit and Yiqing Hua and Deborah Estrin and Vitaly Shmatikov"
+        },
+        {
+          "title": "Residual networks behave like ensembles of relatively shallow networks",
+          "abstract": "In this work we propose a novel interpretation of residual networks showing that they can be seen as a collection of many paths of differing length. Moreover, residual networks seem to enable very deep networks by leveraging only the short paths during training. To support this observation, we rewrite residual networks as an explicit collection of paths. Unlike traditional models, paths through residual networks vary in length. Further, a lesion study reveals that these paths show ensemble-like behavior in the sense that they do not strongly depend on each other. Finally, and most surprising, most paths are shorter than one might expect, and only the short paths are needed during training, as longer paths do not contribute any gradient. For example, most of the gradient in a residual network with 110 layers comes from paths that are only 10-34 layers deep. Our results reveal one of the key characteristics that seem to enable the training of very deep networks: Residual networks avoid the vanishing gradient problem by introducing short paths which can carry gradient throughout the extent of very deep networks.",
+          "year": 2016,
+          "authors": "Andreas Veit and Michael J Wilber and Serge Belongie"
+        }
+      ],
+      "paper_count": 2
+    },
+    {
+      "id": "OKZC1CYAAAAJ",
+      "name": "Eduard Trulls",
+      "level": "direct",
+      "papers": [
+        {
+          "title": "Learning to find good correspondences",
+          "abstract": "We develop a deep architecture to learn to find good correspondences for wide-baseline stereo. Given a set of putative sparse matches and the camera intrinsics, we train our network in an end-to-end fashion to label the correspondences as inliers or outliers, while simultaneously using them to recover the relative pose, as encoded by the essential matrix. Our architecture is based on a multi-layer perceptron operating on pixel coordinates rather than directly on the image, and is thus simple and small. We introduce a novel normalization technique, called Context Normalization, which allows us to process each data point separately while embedding global information in it, and also makes the network invariant to the order of the correspondences. Our experiments on multiple challenging datasets demonstrate that our method is able to drastically improve the state of the art with little training data.",
+          "year": 2018,
+          "authors": "Kwang Moo Yi and Eduard Trulls and Yuki Ono and Vincent Lepetit and Mathieu Salzmann and Pascal Fua"
+        },
+        {
+          "title": "Lift: Learned invariant feature transform",
+          "abstract": "We introduce a novel Deep Network architecture that implements the full feature point handling pipeline, that is, detection, orientation estimation, and feature description. While previous works have successfully tackled each one of these problems individually, we show how to learn to do all three in a unified manner while preserving end-to-end differentiability. We then demonstrate that our Deep pipeline outperforms state-of-the-art methods on a number of benchmark datasets, without the need of retraining.",
+          "year": 2016,
+          "authors": "Kwang Moo Yi and Eduard Trulls and Vincent Lepetit and Pascal Fua"
+        },
+        {
+          "title": "Discriminative learning of deep convolutional feature point descriptors",
+          "abstract": "Deep learning has revolutionalized image-level tasks such as classification, but patch-level tasks, such as correspondence, still rely on hand-crafted features, eg SIFT. In this paper we use Convolutional Neural Networks (CNNs) to learn discriminant patch representations and in particular train a Siamese network with pairs of (non-) corresponding patches. We deal with the large number of potential pairs with the combination of a stochastic sampling of the training set and an aggressive mining strategy biased towards patches that are hard to classify. By using the L2 distance during both training and testing we develop 128-D descriptors whose euclidean distances reflect patch similarity, and which can be used as a drop-in replacement for any task involving SIFT. We demonstrate consistent performance gains over the state of the art, and generalize well against scaling and rotation, perspective transformation, non-rigid deformation, and illumination changes. Our descriptors are efficient to compute and amenable to modern GPUs, and are publicly available.",
+          "year": 2015,
+          "authors": "Edgar Simo-Serra and Eduard Trulls and Luis Ferraz and Iasonas Kokkinos and Pascal Fua and Francesc Moreno-Noguer"
+        }
+      ],
+      "paper_count": 3
+    },
+    {
+      "id": "kzFmAkYAAAAJ",
+      "name": "Pascal Fua",
+      "level": "direct",
+      "papers": [
+        {
+          "title": "SLIC Superpixels Compared to State-of-the-art Superpixel Methods",
+          "abstract": "Computer vision applications have come to rely increasingly on superpixels in recent years, but it is not always clear what constitutes a good superpixel algorithm. In an effort to understand the benefits and drawbacks of existing methods, we empirically compare five state-of-the-art superpixel algorithms for their ability to adhere to image boundaries, speed, memory efficiency, and their impact on segmentation performance. We then introduce a new superpixel algorithm, simple linear iterative clustering (SLIC), which adapts a k-means clustering approach to efficiently generate superpixels. Despite its simplicity, SLIC adheres to boundaries as well as or better than previous methods. At the same time, it is faster and more memory efficient, improves segmentation performance, and is straightforward to extend to supervoxel generation.",
+          "year": 2012,
+          "authors": "Radhakrishna Achanta and Appu Shaji and Kevin Smith and Aurelien Lucchi and Pascal Fua and Sabine S\u00fcsstrunk"
+        },
+        {
+          "title": "Brief: Binary robust independent elementary features",
+          "abstract": "We propose to use binary strings as an efficient feature point descriptor, which we call BRIEF.We show that it is highly discriminative even when using relatively few bits and can be computed using simple intensity difference tests. Furthermore, the descriptor similarity can be evaluated using the Hamming distance, which is very efficient to compute, instead of the L 2 norm as is usually done.As a result, BRIEF is very fast both to build and to match. We compare it against SURF and U-SURF on standard benchmarks and show that it yields a similar or better recognition performance, while running in a fraction of the time required by either.",
+          "year": 2010,
+          "authors": "Michael Calonder and Vincent Lepetit and Christoph Strecha and Pascal Fua"
+        },
+        {
+          "title": "Epnp: An accurate o (n) solution to the pnp problem",
+          "abstract": "We propose a non-iterative solution to the PnP problem\u2014the estimation of the pose of a calibrated camera from n 3D-to-2D point correspondences\u2014whose computational complexity grows linearly with n. This is in contrast to state-of-the-art methods that are O(n 5) or even O(n 8), without being more accurate. Our method is applicable for all n\u22654 and handles properly both planar and non-planar configurations. Our central idea is to express the n 3D points as a weighted sum of four virtual control points. The problem then reduces to estimating the coordinates of these control points in the camera referential, which can be done in O(n) time by expressing these coordinates as weighted sum of the eigenvectors of a 12\u00d712 matrix and solving a small constant number of quadratic equations to pick the right weights. Furthermore, if maximal precision is required, the output of the closed \u2026",
+          "year": 2009,
+          "authors": "Vincent Lepetit and Francesc Moreno-Noguer and Pascal Fua"
+        }
+      ],
+      "paper_count": 3
+    },
+    {
+      "id": "vjZrDKQAAAAJ",
+      "name": "James Hays",
+      "level": "direct",
+      "papers": [
+        {
+          "title": "Microsoft coco: Common objects in context",
+          "abstract": "We present a new dataset with the goal of advancing the state-of-the-art in object recognition by placing the question of object recognition in the context of the broader question of scene understanding. This is achieved by gathering images of complex everyday scenes containing common objects in their natural context. Objects are labeled using per-instance segmentations to aid in precise object localization. Our dataset contains photos of 91 objects types that would be easily recognizable by a 4 year old. With a total of 2.5 million labeled instances in 328k images, the creation of our dataset drew upon extensive crowd worker involvement via novel user interfaces for category detection, instance spotting and instance segmentation. We present a detailed statistical analysis of the dataset in comparison to PASCAL, ImageNet, and SUN. Finally, we provide baseline performance analysis for bounding box and \u2026",
+          "year": 2014,
+          "authors": "Tsung-Yi Lin and Michael Maire and Serge Belongie and James Hays and Pietro Perona and Deva Ramanan and Piotr Doll\u00e1r and C Lawrence Zitnick"
+        },
+        {
+          "title": "Sun database: Large-scale scene recognition from abbey to zoo",
+          "abstract": "Scene categorization is a fundamental problem in computer vision. However, scene understanding research has been constrained by the limited scope of currently-used databases which do not capture the full variety of scene categories. Whereas standard databases for object categorization contain hundreds of different classes of objects, the largest available dataset of scene categories contains only 15 classes. In this paper we propose the extensive Scene UNderstanding (SUN) database that contains 899 categories and 130,519 images. We use 397 well-sampled categories to evaluate numerous state-of-the-art algorithms for scene recognition and establish new bounds of performance. We measure human scene classification performance on the SUN database and compare this with computational methods. Additionally, we study a finer-grained scene representation to detect scenes embedded inside of larger \u2026",
+          "year": 2010,
+          "authors": "Jianxiong Xiao and James Hays and Krista A Ehinger and Aude Oliva and Antonio Torralba"
+        }
+      ],
+      "paper_count": 2
+    },
+    {
+      "id": "yBS07YQAAAAJ",
+      "name": "Aqil M Azmi",
+      "level": "direct",
+      "papers": [
+        {
+          "title": "Automated Text Simplification: A Survey",
+          "abstract": "Text simplification (TS) reduces the complexity of the text to improve its readability and understandability, while possibly retaining its original information content. Over time, TS has become an essential tool in helping those with low literacy levels, non-native learners, and those struggling with various types of reading comprehension problems. In addition, it is used in a preprocessing stage to enhance other NLP tasks. This survey presents an extensive study of current research studies in the field of TS, as well as covering resources, corpora, and evaluation methods that have been used in those studies.",
+          "year": 2021,
+          "authors": "Suha S Al-Thanyyan and Aqil M Azmi"
+        },
+        {
+          "title": "Impact of stemming and word embedding on deep learning-based Arabic text categorization",
+          "abstract": "Document classification is a classical problem in information retrieval, and plays an important role in a variety of applications. Automatic document classification can be defined as content-based assignment of one or more predefined categories to documents. Many algorithms have been proposed and implemented to solve this problem in general, however, classifying Arabic documents is lagging behind similar works in other languages. In this paper, we present seven deep learning-based algorithms to classify the Arabic documents. These are: Convolutional Neural Network (CNN), CNN-LSTM (LSTM = Long Short-Term Memory), CNN-GRU (GRU = Gated Recurrent Units), BiLSTM (Bidirectional LSTM), BiGRU, Att-LSTM (Attention-based LSTM), and Att-GRU. And for word representation, we applied the word embedding technique (Word2Vec). We tested our approach on two large datasets-with six and eight \u2026",
+          "year": 2020,
+          "authors": "Huda Abdulrahman Almuzaini and Aqil M Azmi"
+        },
+        {
+          "title": "Arabic tweets sentiment analysis\u2013a hybrid scheme",
+          "abstract": "The fact that people freely express their opinions and ideas in no more than 140 characters makes Twitter one of the most prevalent social networking websites in the world. Being popular in Saudi Arabia, we believe that tweets are a good source to capture the public\u2019s sentiment, especially since the country is in a fractious region. Going over the challenges and the difficulties that the Arabic tweets present \u2013 using Saudi Arabia as a basis \u2013 we propose our solution. A typical problem is the practice of tweeting in dialectical Arabic. Based on our observation we recommend a hybrid approach that combines semantic orientation and machine learning techniques. Through this approach, the lexical-based classifier will label the training data, a time-consuming task often prepared manually. The output of the lexical classifier will be used as training data for the SVM machine learning classifier. The experiments show that \u2026",
+          "year": 2016,
+          "authors": "Haifa K Aldayel and Aqil M Azmi"
+        }
+      ],
+      "paper_count": 3
+    },
+    {
+      "id": "dkELewQAAAAJ",
+      "name": "Mohammad Moghimi",
+      "level": "direct",
+      "papers": [
+        {
+          "title": "Static task scheduling using genetic algorithm and reinforcement learning",
+          "abstract": "Task scheduling in a multiprocessor system is defined as assigning a set of tasks to a set of processors. The goal is to minimize the execution time while meeting a set of constraints. A wide variety set of deterministic and heuristic methods are proposed to solve the problem. The main problem is that the proposed methods cannot deal with big search spaces and cannot guarantee to find the optimal solution. In this research a novel approach based on reinforcement learning and genetic algorithm is proposed. Being divided using genetic algorithm, the smaller problems can be solved with reinforcement learner scheduler. The result of the method is a set of task processor pairs. Simulation results in standard problem set show that the method outperforms some studied GA based scheduling methods",
+          "year": 2007,
+          "authors": "Mohammad Moghimi Najafabadi and Mustafa Zali and Shamim Taheri and Fattaneh Taghiyareh"
+        }
+      ],
+      "paper_count": 1
+    },
+    {
+      "id": "pr6rIJEAAAAJ",
+      "name": "Kwang Moo Yi",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "iAEBIB4AAAAJ",
+      "name": "Francesc Moreno-Noguer",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "h0a5q3QAAAAJ",
+      "name": "Vincent Lepetit",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "ZO3Ek1gAAAAJ",
+      "name": "Iasonas Kokkinos",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "ZFRhP04AAAAJ",
+      "name": "Alberto Sanfeliu",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "2bDu3ecAAAAJ",
+      "name": "Edgar Simo-Serra",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "1RmD-YsAAAAJ",
+      "name": "Andrea Tagliasacchi",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "OsqGLUAAAAAJ",
+      "name": "Wei Jiang (\u848b\u709c)",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "qsB2vcgAAAAJ",
+      "name": "Jan Hosang",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "CZ40rFYAAAAJ",
+      "name": "Michal Tyszkiewicz",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "oAYi1YQAAAAJ",
+      "name": "Yuhe Jin",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "n-B0jr4AAAAJ",
+      "name": "Mathieu Salzmann",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "H72QiF0AAAAJ",
+      "name": "Dmytro Mishkin",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "EJCNY6QAAAAJ",
+      "name": "Jiri Matas",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "DCUAYxwAAAAJ",
+      "name": "Andreu Corominas Murtra",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "vOSVVdkAAAAJ",
+      "name": "Patrick Ebel",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "NTozWbQAAAAJ",
+      "name": "Juan Andrade-Cetto",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "dDiJhKMAAAAJ",
+      "name": "Gonzalo Ferrer",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "4hC_FYoAAAAJ",
+      "name": "Stavros Tsogkas",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "RQip5VgAAAAJ",
+      "name": "Simon Lynen",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "2fAUgfAAAAAJ",
+      "name": "Paul-Edouard Sarlin",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "LbHIswMAAAAJ",
+      "name": "Josep M. Mirats Tur",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "XXC5tSEAAAAJ",
+      "name": "Weiwei Sun (\u5b59\u536b\u536b)",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "xq2A-7sAAAAJ",
+      "name": "Anastasiia Mishchuk",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "chD5XxkAAAAJ",
+      "name": "Serge Belongie",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "08CNqrYAAAAJ",
+      "name": "Sanjiv Kumar",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "U0_ab4cAAAAJ",
+      "name": "Ankit Singh Rawat",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "li4mEfcAAAAJ",
+      "name": "Aditya Krishna Menon",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "OAtUvx0AAAAJ",
+      "name": "Kimberly Wilber",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "0v5utcwAAAAJ",
+      "name": "Ayan Chakrabarti",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "qYLOPxoAAAAJ",
+      "name": "Sadeep Jayasumana",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "70lgwYwAAAAJ",
+      "name": "Sashank J. Reddi",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "w0OodaEAAAAJ",
+      "name": "Daniel Glasner",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "bpSF_9EAAAAJ",
+      "name": "Srinadh Bhojanapalli",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "bqL73OkAAAAJ",
+      "name": "Abhinav Gupta",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "rArDMRMAAAAJ",
+      "name": "Neil Alldrin",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "Wk2gAZUAAAAJ",
+      "name": "Gal Chechik",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "3_WYcR4AAAAJ",
+      "name": "Deborah Estrin",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "_MfoOC8AAAAJ",
+      "name": "Eugene Bagdasarian",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "ING38FQAAAAJ",
+      "name": "Yiqing Hua",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "lYvF6cUAAAAJ",
+      "name": "Felix Xinnan Yu",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "6m1ptOgAAAAJ",
+      "name": "Srikumar Ramalingam",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "eyCw9goAAAAJ",
+      "name": "Suvrit Sra",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "8NudxYsAAAAJ",
+      "name": "Jingzhao Zhang",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "9sNvmo4AAAAJ",
+      "name": "Luk\u00e1\u0161 Neumann",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "P_luG3cAAAAJ",
+      "name": "David Rolnick",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "Am6f2DsAAAAJ",
+      "name": "Daliang Li",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "cLZLZCQAAAAJ",
+      "name": "Michal Lukasik",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "vQa7heEAAAAJ",
+      "name": "Chen Sun",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "MxxZkEcAAAAJ",
+      "name": "Kevin Murphy",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "4QvYJ00AAAAJ",
+      "name": "Vittorio Ferrari",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "Z8bnyvIAAAAJ",
+      "name": "Victor Gomes",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "Sc2tw28AAAAJ",
+      "name": "Tom J Duerig",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "wKJeOQoAAAAJ",
+      "name": "Sai Praneeth Karimireddy",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "JtrH9jQAAAAJ",
+      "name": "Himanshu Jain",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "QCARd5gAAAAJ",
+      "name": "Thomas Unterthiner",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "zrxafGsAAAAJ",
+      "name": "Theofanis Karaletsos",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "iP5m52IAAAAJ",
+      "name": "Yin Cui",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "_kElCmMAAAAJ",
+      "name": "Guandao Yang",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "icbo4M0AAAAJ",
+      "name": "Julian McAuley",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "xY1GdVgAAAAJ",
+      "name": "Sean Bell",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "Rh16nsIAAAAJ",
+      "name": "Kavita Bala",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "-qSroKoAAAAJ",
+      "name": "Bal\u00e1zs Kov\u00e1cs",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "A33FhJMAAAAJ",
+      "name": "Manzil Zaheer",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "85bt-X0AAAAJ",
+      "name": "Hans-Arno Jacobsen",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "1XGC4GsAAAAJ",
+      "name": "Xun Huang",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "Y4XkdPQAAAAJ",
+      "name": "Nilanjan Chakraborty",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "VWv6a9kAAAAJ",
+      "name": "Katia Sycara",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "BHS1vd4AAAAJ",
+      "name": "Christoph Goebel",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "zDhPcpUAAAAJ",
+      "name": "Baoguang Shi",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "ohIxH_QAAAAJ",
+      "name": "Yin-Wen Chang",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "KDqGTIUAAAAJ",
+      "name": "Maximilian Nickel",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "6GDfcqEAAAAJ",
+      "name": "Laurens van der Maaten",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "zkhHirIAAAAJ",
+      "name": "Michael S. Bernstein",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "TAa45rUAAAAJ",
+      "name": "Rajan Vaish",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "BDYIAe4AAAAJ",
+      "name": "James Davis",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "IcqahyAAAAAJ",
+      "name": "Ranjay Krishna",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "6DVk_M0AAAAJ",
+      "name": "Isay Katsman",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "Bj1tRlsAAAAJ",
+      "name": "Fran\u00e7ois Fleuret",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "G7cEGOIAAAAJ",
+      "name": "Christoph Strecha",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "weicM8wAAAAJ",
+      "name": "Kevin Smith",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "2maWWboAAAAJ",
+      "name": "Helge Rhodin",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "EX3OYP4AAAAJ",
+      "name": "Sabine S\u00fcsstrunk",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "GPusciUAAAAJ",
+      "name": "Daniel Thalmann",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "jyxO2akAAAAJ",
+      "name": "Raquel Urtasun",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "ELOVd8sAAAAJ",
+      "name": "Slobodan Ilic",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "tG0ow2UAAAAJ",
+      "name": "Raphael Sznitman",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "njOmQFsAAAAJ",
+      "name": "David J Fleet",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "_PhjyLoAAAAJ",
+      "name": "Olivier Faugeras",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "BxbKTYkAAAAJ",
+      "name": "Dimitris Samaras",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "dq987eIAAAAJ",
+      "name": "Hatim Aboalsamh",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "Qg47-BsAAAAJ",
+      "name": "Prof Amir Hussain",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "xyynWKcAAAAJ",
+      "name": "Muhammad Hussain",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "2PjwQIgAAAAJ",
+      "name": "Abdulrakeeb M. Al-Ssulami",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "jNw9F-cAAAAJ",
+      "name": "Huda Abdulrahman Al-muzaini",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "ZIvockAAAAAJ",
+      "name": "Abeer Alsaiari",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    },
+    {
+      "id": "DV7JWVsAAAAJ",
+      "name": "Richard Byrd",
+      "level": "second",
+      "papers": [],
+      "paper_count": 0
+    }
+  ],
+  "links": [
+    {
+      "source": "UA9Hb2EAAAAJ",
+      "target": "UminJoEAAAAJ"
+    },
+    {
+      "source": "OKZC1CYAAAAJ",
+      "target": "UminJoEAAAAJ"
+    },
+    {
+      "source": "UminJoEAAAAJ",
+      "target": "kzFmAkYAAAAJ"
+    },
+    {
+      "source": "UminJoEAAAAJ",
+      "target": "vjZrDKQAAAAJ"
+    },
+    {
+      "source": "UminJoEAAAAJ",
+      "target": "yBS07YQAAAAJ"
+    },
+    {
+      "source": "UminJoEAAAAJ",
+      "target": "dkELewQAAAAJ"
+    },
+    {
+      "source": "OKZC1CYAAAAJ",
+      "target": "pr6rIJEAAAAJ"
+    },
+    {
+      "source": "OKZC1CYAAAAJ",
+      "target": "kzFmAkYAAAAJ"
+    },
+    {
+      "source": "OKZC1CYAAAAJ",
+      "target": "iAEBIB4AAAAJ"
+    },
+    {
+      "source": "OKZC1CYAAAAJ",
+      "target": "h0a5q3QAAAAJ"
+    },
+    {
+      "source": "OKZC1CYAAAAJ",
+      "target": "ZO3Ek1gAAAAJ"
+    },
+    {
+      "source": "OKZC1CYAAAAJ",
+      "target": "ZFRhP04AAAAJ"
+    },
+    {
+      "source": "2bDu3ecAAAAJ",
+      "target": "OKZC1CYAAAAJ"
+    },
+    {
+      "source": "1RmD-YsAAAAJ",
+      "target": "OKZC1CYAAAAJ"
+    },
+    {
+      "source": "OKZC1CYAAAAJ",
+      "target": "OsqGLUAAAAAJ"
+    },
+    {
+      "source": "OKZC1CYAAAAJ",
+      "target": "qsB2vcgAAAAJ"
+    },
+    {
+      "source": "CZ40rFYAAAAJ",
+      "target": "OKZC1CYAAAAJ"
+    },
+    {
+      "source": "OKZC1CYAAAAJ",
+      "target": "oAYi1YQAAAAJ"
+    },
+    {
+      "source": "OKZC1CYAAAAJ",
+      "target": "n-B0jr4AAAAJ"
+    },
+    {
+      "source": "H72QiF0AAAAJ",
+      "target": "OKZC1CYAAAAJ"
+    },
+    {
+      "source": "EJCNY6QAAAAJ",
+      "target": "OKZC1CYAAAAJ"
+    },
+    {
+      "source": "DCUAYxwAAAAJ",
+      "target": "OKZC1CYAAAAJ"
+    },
+    {
+      "source": "OKZC1CYAAAAJ",
+      "target": "vOSVVdkAAAAJ"
+    },
+    {
+      "source": "NTozWbQAAAAJ",
+      "target": "OKZC1CYAAAAJ"
+    },
+    {
+      "source": "OKZC1CYAAAAJ",
+      "target": "vjZrDKQAAAAJ"
+    },
+    {
+      "source": "OKZC1CYAAAAJ",
+      "target": "dDiJhKMAAAAJ"
+    },
+    {
+      "source": "4hC_FYoAAAAJ",
+      "target": "OKZC1CYAAAAJ"
+    },
+    {
+      "source": "OKZC1CYAAAAJ",
+      "target": "RQip5VgAAAAJ"
+    },
+    {
+      "source": "2fAUgfAAAAAJ",
+      "target": "OKZC1CYAAAAJ"
+    },
+    {
+      "source": "LbHIswMAAAAJ",
+      "target": "OKZC1CYAAAAJ"
+    },
+    {
+      "source": "OKZC1CYAAAAJ",
+      "target": "XXC5tSEAAAAJ"
+    },
+    {
+      "source": "OKZC1CYAAAAJ",
+      "target": "xq2A-7sAAAAJ"
+    },
+    {
+      "source": "UA9Hb2EAAAAJ",
+      "target": "chD5XxkAAAAJ"
+    },
+    {
+      "source": "08CNqrYAAAAJ",
+      "target": "UA9Hb2EAAAAJ"
+    },
+    {
+      "source": "U0_ab4cAAAAJ",
+      "target": "UA9Hb2EAAAAJ"
+    },
+    {
+      "source": "UA9Hb2EAAAAJ",
+      "target": "li4mEfcAAAAJ"
+    },
+    {
+      "source": "OAtUvx0AAAAJ",
+      "target": "UA9Hb2EAAAAJ"
+    },
+    {
+      "source": "0v5utcwAAAAJ",
+      "target": "UA9Hb2EAAAAJ"
+    },
+    {
+      "source": "UA9Hb2EAAAAJ",
+      "target": "qYLOPxoAAAAJ"
+    },
+    {
+      "source": "70lgwYwAAAAJ",
+      "target": "UA9Hb2EAAAAJ"
+    },
+    {
+      "source": "UA9Hb2EAAAAJ",
+      "target": "w0OodaEAAAAJ"
+    },
+    {
+      "source": "UA9Hb2EAAAAJ",
+      "target": "bpSF_9EAAAAJ"
+    },
+    {
+      "source": "UA9Hb2EAAAAJ",
+      "target": "bqL73OkAAAAJ"
+    },
+    {
+      "source": "UA9Hb2EAAAAJ",
+      "target": "rArDMRMAAAAJ"
+    },
+    {
+      "source": "UA9Hb2EAAAAJ",
+      "target": "Wk2gAZUAAAAJ"
+    },
+    {
+      "source": "3_WYcR4AAAAJ",
+      "target": "UA9Hb2EAAAAJ"
+    },
+    {
+      "source": "UA9Hb2EAAAAJ",
+      "target": "_MfoOC8AAAAJ"
+    },
+    {
+      "source": "ING38FQAAAAJ",
+      "target": "UA9Hb2EAAAAJ"
+    },
+    {
+      "source": "UA9Hb2EAAAAJ",
+      "target": "lYvF6cUAAAAJ"
+    },
+    {
+      "source": "6m1ptOgAAAAJ",
+      "target": "UA9Hb2EAAAAJ"
+    },
+    {
+      "source": "UA9Hb2EAAAAJ",
+      "target": "eyCw9goAAAAJ"
+    },
+    {
+      "source": "8NudxYsAAAAJ",
+      "target": "UA9Hb2EAAAAJ"
+    },
+    {
+      "source": "EJCNY6QAAAAJ",
+      "target": "UA9Hb2EAAAAJ"
+    },
+    {
+      "source": "9sNvmo4AAAAJ",
+      "target": "UA9Hb2EAAAAJ"
+    },
+    {
+      "source": "P_luG3cAAAAJ",
+      "target": "UA9Hb2EAAAAJ"
+    },
+    {
+      "source": "Am6f2DsAAAAJ",
+      "target": "UA9Hb2EAAAAJ"
+    },
+    {
+      "source": "UA9Hb2EAAAAJ",
+      "target": "cLZLZCQAAAAJ"
+    },
+    {
+      "source": "UA9Hb2EAAAAJ",
+      "target": "vQa7heEAAAAJ"
+    },
+    {
+      "source": "MxxZkEcAAAAJ",
+      "target": "UA9Hb2EAAAAJ"
+    },
+    {
+      "source": "4QvYJ00AAAAJ",
+      "target": "UA9Hb2EAAAAJ"
+    },
+    {
+      "source": "UA9Hb2EAAAAJ",
+      "target": "Z8bnyvIAAAAJ"
+    },
+    {
+      "source": "Sc2tw28AAAAJ",
+      "target": "UA9Hb2EAAAAJ"
+    },
+    {
+      "source": "UA9Hb2EAAAAJ",
+      "target": "wKJeOQoAAAAJ"
+    },
+    {
+      "source": "JtrH9jQAAAAJ",
+      "target": "UA9Hb2EAAAAJ"
+    },
+    {
+      "source": "QCARd5gAAAAJ",
+      "target": "UA9Hb2EAAAAJ"
+    },
+    {
+      "source": "UA9Hb2EAAAAJ",
+      "target": "zrxafGsAAAAJ"
+    },
+    {
+      "source": "UA9Hb2EAAAAJ",
+      "target": "iP5m52IAAAAJ"
+    },
+    {
+      "source": "UA9Hb2EAAAAJ",
+      "target": "_kElCmMAAAAJ"
+    },
+    {
+      "source": "UA9Hb2EAAAAJ",
+      "target": "icbo4M0AAAAJ"
+    },
+    {
+      "source": "UA9Hb2EAAAAJ",
+      "target": "xY1GdVgAAAAJ"
+    },
+    {
+      "source": "Rh16nsIAAAAJ",
+      "target": "UA9Hb2EAAAAJ"
+    },
+    {
+      "source": "-qSroKoAAAAJ",
+      "target": "UA9Hb2EAAAAJ"
+    },
+    {
+      "source": "A33FhJMAAAAJ",
+      "target": "UA9Hb2EAAAAJ"
+    },
+    {
+      "source": "85bt-X0AAAAJ",
+      "target": "UA9Hb2EAAAAJ"
+    },
+    {
+      "source": "1XGC4GsAAAAJ",
+      "target": "UA9Hb2EAAAAJ"
+    },
+    {
+      "source": "UA9Hb2EAAAAJ",
+      "target": "Y4XkdPQAAAAJ"
+    },
+    {
+      "source": "UA9Hb2EAAAAJ",
+      "target": "VWv6a9kAAAAJ"
+    },
+    {
+      "source": "BHS1vd4AAAAJ",
+      "target": "UA9Hb2EAAAAJ"
+    },
+    {
+      "source": "UA9Hb2EAAAAJ",
+      "target": "zDhPcpUAAAAJ"
+    },
+    {
+      "source": "UA9Hb2EAAAAJ",
+      "target": "ohIxH_QAAAAJ"
+    },
+    {
+      "source": "KDqGTIUAAAAJ",
+      "target": "UA9Hb2EAAAAJ"
+    },
+    {
+      "source": "6GDfcqEAAAAJ",
+      "target": "UA9Hb2EAAAAJ"
+    },
+    {
+      "source": "UA9Hb2EAAAAJ",
+      "target": "zkhHirIAAAAJ"
+    },
+    {
+      "source": "TAa45rUAAAAJ",
+      "target": "UA9Hb2EAAAAJ"
+    },
+    {
+      "source": "BDYIAe4AAAAJ",
+      "target": "UA9Hb2EAAAAJ"
+    },
+    {
+      "source": "IcqahyAAAAAJ",
+      "target": "UA9Hb2EAAAAJ"
+    },
+    {
+      "source": "6DVk_M0AAAAJ",
+      "target": "UA9Hb2EAAAAJ"
+    },
+    {
+      "source": "h0a5q3QAAAAJ",
+      "target": "kzFmAkYAAAAJ"
+    },
+    {
+      "source": "kzFmAkYAAAAJ",
+      "target": "n-B0jr4AAAAJ"
+    },
+    {
+      "source": "Bj1tRlsAAAAJ",
+      "target": "kzFmAkYAAAAJ"
+    },
+    {
+      "source": "G7cEGOIAAAAJ",
+      "target": "kzFmAkYAAAAJ"
+    },
+    {
+      "source": "kzFmAkYAAAAJ",
+      "target": "weicM8wAAAAJ"
+    },
+    {
+      "source": "2maWWboAAAAJ",
+      "target": "kzFmAkYAAAAJ"
+    },
+    {
+      "source": "EX3OYP4AAAAJ",
+      "target": "kzFmAkYAAAAJ"
+    },
+    {
+      "source": "iAEBIB4AAAAJ",
+      "target": "kzFmAkYAAAAJ"
+    },
+    {
+      "source": "GPusciUAAAAJ",
+      "target": "kzFmAkYAAAAJ"
+    },
+    {
+      "source": "jyxO2akAAAAJ",
+      "target": "kzFmAkYAAAAJ"
+    },
+    {
+      "source": "ELOVd8sAAAAJ",
+      "target": "kzFmAkYAAAAJ"
+    },
+    {
+      "source": "kzFmAkYAAAAJ",
+      "target": "tG0ow2UAAAAJ"
+    },
+    {
+      "source": "kzFmAkYAAAAJ",
+      "target": "njOmQFsAAAAJ"
+    },
+    {
+      "source": "_PhjyLoAAAAJ",
+      "target": "kzFmAkYAAAAJ"
+    },
+    {
+      "source": "BxbKTYkAAAAJ",
+      "target": "kzFmAkYAAAAJ"
+    },
+    {
+      "source": "dq987eIAAAAJ",
+      "target": "yBS07YQAAAAJ"
+    },
+    {
+      "source": "Qg47-BsAAAAJ",
+      "target": "yBS07YQAAAAJ"
+    },
+    {
+      "source": "xyynWKcAAAAJ",
+      "target": "yBS07YQAAAAJ"
+    },
+    {
+      "source": "2PjwQIgAAAAJ",
+      "target": "yBS07YQAAAAJ"
+    },
+    {
+      "source": "jNw9F-cAAAAJ",
+      "target": "yBS07YQAAAAJ"
+    },
+    {
+      "source": "ZIvockAAAAAJ",
+      "target": "yBS07YQAAAAJ"
+    },
+    {
+      "source": "DV7JWVsAAAAJ",
+      "target": "yBS07YQAAAAJ"
+    }
+  ],
+  "metadata": {
+    "source_file": "nicolasdata/author_abstracts_4.json",
+    "total_authors": 104,
+    "total_connections": 109,
+    "summary": {
+      "total_authors": 104,
+      "input_authors_count": 1,
+      "direct_co_authors_count": 6,
+      "second_level_co_authors_count": 100,
+      "authors_with_abstracts": 7,
+      "total_abstracts": 17
+    }
+  }
+}

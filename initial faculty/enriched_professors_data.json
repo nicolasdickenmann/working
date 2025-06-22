@@ -1,0 +1,1209 @@
+[
+  {
+    "name": "Sergey Levine",
+    "interests": [
+      "artificial intelligence",
+      "intelligent systems and robotics"
+    ],
+    "google_scholar_id": "8R35rCwAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=8R35rCwAAAAJ&hl=en"
+  },
+  {
+    "name": "Trevor Darrell",
+    "interests": [
+      "artificial intelligence",
+      "intelligent systems and robotics",
+      "computer vision"
+    ],
+    "google_scholar_id": "bh-uRFMAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=bh-uRFMAAAAJ"
+  },
+  {
+    "name": "Adam Yala",
+    "interests": [
+      "artificial intelligence",
+      "health"
+    ],
+    "google_scholar_id": "a4unsk4AAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=a4unsk4AAAAJ&hl=en"
+  },
+  {
+    "name": "Dawn Song",
+    "interests": [
+      "privacy",
+      "computer security",
+      "artificial intelligence"
+    ],
+    "google_scholar_id": "84WzBlYAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=84WzBlYAAAAJ&hl=en"
+  },
+  {
+    "name": "Benjamin Recht",
+    "interests": [
+      "machine learning",
+      "data science",
+      "artificial intelligence"
+    ],
+    "google_scholar_id": "a_dbdxAAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=a_dbdxAAAAAJ&hl=en"
+  },
+  {
+    "name": "Jiantao Jiao",
+    "interests": [
+      "artificial intelligence",
+      "control and intelligent systems and robotics",
+      "communications and networking"
+    ],
+    "google_scholar_id": "aO8KpGcAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=aO8KpGcAAAAJ&hl=en"
+  },
+  {
+    "name": "Jacob Steinhardt",
+    "interests": [
+      "artificial intelligence",
+      "machine learning"
+    ],
+    "google_scholar_id": "LKv32bgAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=LKv32bgAAAAJ&hl=en"
+  },
+  {
+    "name": "Pieter Abbeel",
+    "interests": [
+      "robotics",
+      "machine learning",
+      "artificial intelligence",
+      "Deep Learning"
+    ],
+    "google_scholar_id": "vtwH6GkAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=vtwH6GkAAAAJ&hl=en"
+  },
+  {
+    "name": "Joseph Gonzalez",
+    "interests": [
+      "artificial intelligence",
+      "database management systems"
+    ],
+    "google_scholar_id": "B96GkdgAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=B96GkdgAAAAJ&hl=en"
+  },
+  {
+    "name": "Ahmed Alaa",
+    "interests": [
+      "machine learning and artificial intelligence",
+      "health care",
+      "statistics"
+    ],
+    "google_scholar_id": "_pv1sEcAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=_pv1sEcAAAAJ&hl=en"
+  },
+  {
+    "name": "Xiaoyu (Rayne) Zheng",
+    "interests": [
+      "additive manufacturing",
+      "metamaterials",
+      "robotics",
+      "antenna",
+      "artificial intelligence"
+    ],
+    "google_scholar_id": "Wi25oKoAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=Wi25oKoAAAAJ&hl=en"
+  },
+  {
+    "name": "Christian Borgs",
+    "interests": [
+      "theoretical computer science",
+      "probability theory",
+      "combinatorics",
+      "complex networks",
+      "statistical physics",
+      "artificial intelligence",
+      "applications of artificial intelligence and machine learning in engineering and sciences"
+    ],
+    "google_scholar_id": "B847xq8AAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=B847xq8AAAAJ&hl=en"
+  },
+  {
+    "name": "Anil Aswani",
+    "interests": [
+      "machine learning and artificial intelligence",
+      "precision health",
+      "optimization",
+      "statistics"
+    ],
+    "google_scholar_id": "_tNCgxMAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=_tNCgxMAAAAJ&hl=en"
+  },
+  {
+    "name": "Anca Dragan",
+    "interests": [
+      "robotics",
+      "human-robot interaction",
+      "human-compatible artificial intelligence"
+    ],
+    "google_scholar_id": "UgHB5oAAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=UgHB5oAAAAAJ&hl=en"
+  },
+  {
+    "name": "Matei Zaharia",
+    "interests": [
+      "operating systems & networking",
+      "artificial intelligence",
+      "database management systems"
+    ],
+    "google_scholar_id": "I1EvjZsAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=I1EvjZsAAAAJ&hl=en"
+  },
+  {
+    "name": "Deirdre Mulligan",
+    "interests": [
+      "information policy",
+      "law",
+      "privacy",
+      "security",
+      "machine learning and artificial intelligence"
+    ],
+    "google_scholar_id": "B7xbi_QAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=B7xbi_QAAAAJ&hl=en"
+  },
+  {
+    "name": "Negar Mehr",
+    "interests": [
+      "robotics",
+      "control theory",
+      "artificial intelligence",
+      "game theory",
+      "machine learning"
+    ],
+    "google_scholar_id": "oAlCitYAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=oAlCitYAAAAJ&hl=en"
+  },
+  {
+    "name": "Colleen Chien",
+    "interests": [
+      "artificial intelligence",
+      "intellectual property law",
+      "law and technology",
+      "criminal justice"
+    ],
+    "google_scholar_id": "DYQ2H6sAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=DYQ2H6sAAAAJ&hl=en"
+  },
+  {
+    "name": "Stuart J. Russell",
+    "interests": [
+      "artificial intelligence",
+      "computational biology",
+      "algorithms",
+      "machine learning",
+      "real-time decision-making",
+      "probabilistic reasoning"
+    ],
+    "google_scholar_id": "2oy3OXYAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=2oy3OXYAAAAJ&hl=en"
+  },
+  {
+    "name": "Alexei Efros",
+    "interests": [
+      "computer vision",
+      "computer graphics",
+      "computational photography",
+      "machine learning",
+      "artificial intelligence"
+    ],
+    "google_scholar_id": "d97bGd8AAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=d97bGd8AAAAJ&hl=en"
+  },
+  {
+    "name": "Jaijeet Roychowdhury",
+    "interests": [
+      "artificial intelligence",
+      "cyber-physical systems and design automation",
+      "computer architecture & engineering"
+    ],
+    "google_scholar_id": "XQE7DTgAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=XQE7DTgAAAAJ&hl=en"
+  },
+  {
+    "name": "Gopala Krishna Anumanchipalli",
+    "interests": [
+      "biosystems and computational biology",
+      "artificial intelligence",
+      "cyber-physical systems and design automation",
+      "human-computer interaction",
+      "signal processing",
+      "intelligent systems and robotics"
+    ],
+    "google_scholar_id": "VecEj6kAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=VecEj6kAAAAJ&hl=e"
+  },
+  {
+    "name": "Mengjie Yu",
+    "interests": [
+      "physical electronics",
+      "artificial intelligence",
+      "integrated circuits",
+      "micro/nano electro mechanical systems"
+    ],
+    "google_scholar_id": "t5fpSWUAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=t5fpSWUAAAAJ&hl=en"
+  },
+  {
+    "name": "Ying Cui",
+    "interests": [
+      "continuous optimization",
+      "optimization under uncertainty",
+      "statistical estimations",
+      "machine learning",
+      "artificial intelligence"
+    ],
+    "google_scholar_id": "--WN2j4AAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=--WN2j4AAAAJ&hl=en"
+  },
+  {
+    "name": "Alane Suhr",
+    "interests": [
+      "artificial intelligence",
+      "natural language processing",
+      "machine learning",
+      "computer vision",
+      "computational linguistics"
+    ],
+    "google_scholar_id": "daslsUkAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=daslsUkAAAAJ&hl=en"
+  },
+  {
+    "name": "Nika Haghtalab",
+    "interests": [
+      "artificial intelligence",
+      "machine learning",
+      "theoretical computer science",
+      "game theory and mechanism design"
+    ],
+    "google_scholar_id": "C6pnolkAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=C6pnolkAAAAJ&hl=en"
+  },
+  {
+    "name": "Kyle Steinfeld",
+    "interests": [
+      "design computation",
+      "architectural representation",
+      "design methods",
+      "Generative AI",
+      "artificial intelligence",
+      "creativity",
+      "ideation and creativity"
+    ],
+    "google_scholar_id": "ilkgxjAAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=ilkgxjAAAAAJ&hl=en"
+  },
+  {
+    "name": "Sonia Katyal",
+    "interests": [
+      "artificial intelligence",
+      "law and technology",
+      "intellectual property law",
+      "contemporary art and law",
+      "gender and sexuality"
+    ],
+    "google_scholar_id": "EoKvHnkAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=EoKvHnkAAAAJ&hl=en"
+  },
+  {
+    "name": "Ren Ng",
+    "interests": [
+      "imaging systems",
+      "computational photography",
+      "graphics",
+      "optics",
+      "computer vision",
+      "human vision",
+      "signal processing",
+      "artificial intelligence"
+    ],
+    "google_scholar_id": "6H0mhLUAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=6H0mhLUAAAAJ&hl=en"
+  },
+  {
+    "name": "Pierluigi Nuzzo",
+    "interests": [
+      "cyber-physical systems and design automation",
+      "control and intelligent systems and robotics",
+      "integrated circuits",
+      "computer architecture & engineering",
+      "artificial intelligence",
+      "power and energy",
+      "programming systems",
+      "security"
+    ],
+    "google_scholar_id": "GsDdaaYAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=GsDdaaYAAAAJ&hl=en"
+  },
+  {
+    "name": "Zaijun Chen",
+    "interests": [
+      "physical electronics",
+      "artificial intelligence",
+      "computer architecture & engineering",
+      "information / data / network / communication science",
+      "integrated circuits"
+    ],
+    "google_scholar_id": "JO53XA0AAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=JO53XA0AAAAJ&hl=en"
+  },
+  {
+    "name": "Grace Gu",
+    "interests": [
+      "Composites",
+      "additive manufacturing",
+      "in-situ monitoring and process control",
+      "artificial intelligence and machine learning",
+      "bioinspired materials"
+    ],
+    "google_scholar_id": "IE4UTWAAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=IE4UTWAAAAAJ&hl=en"
+  },
+  {
+    "name": "Marcia C. Linn",
+    "interests": [
+      "artificial intelligence",
+      "technology",
+      "learning",
+      "mathematics",
+      "science",
+      "education",
+      "science teaching",
+      "gender equity",
+      "design of learning environments"
+    ], 
+    "google_scholar_id": "RVbPgUgAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=RVbPgUgAAAAJ&hl=en"
+  },
+  {
+    "name": "Michael Jordan",
+    "interests": [
+      "computer science",
+      "artificial intelligence",
+      "computational biology",
+      "statistics",
+      "machine learning",
+      "electrical engineering",
+      "applied statistics",
+      "optimization"
+    ],
+    "google_scholar_id": "yxUduqMAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=yxUduqMAAAAJ&hl=en"
+  },
+  {
+    "name": "Tejas Narechania",
+    "interests": [
+      "administrative law",
+      "antitrust",
+      "artificial intelligence",
+      "intellectual property",
+      "law and technology",
+      "privacy and cybersecurity",
+      "telecommunications law",
+      "internet technology"
+    ],
+    "google_scholar_id": "wlGOM2MAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=wlGOM2MAAAAJ&hl=en"
+  },
+  {
+    "name": "Ryan Tibshirani",
+    "interests": [
+      "statistical computing",
+      "applications in public health",
+      "high-dimensional data analysis",
+      "nonparametric inference",
+      "artificial intelligence",
+      "machine learning"
+    ],
+    "google_scholar_id": "cQ1P1qoAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=cQ1P1qoAAAAJ&hl=en"
+  },
+
+  {
+    "name": "Jennifer Listgarten",
+    "interests": [
+      "artificial intelligence",
+      "machine learning",
+      "computational biology",
+      "protein engineering",
+      "statistical design of experiments",
+      "statistical machine learning",
+      "experimental design"
+    ],
+    "google_scholar_id": "jhPhgf4AAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=jhPhgf4AAAAJ&hl=en"
+  },
+  {
+    "name": "Ga\u0161per Begu\u0161",
+    "interests": [
+      "computational linguistics",
+      "machine learning",
+      "artificial intelligence",
+      "Generative AI",
+      "Deep Learning",
+      "speech processing",
+      "NLP",
+      "phonology",
+      "articulatory and acoustic phonetics",
+      "historical linguistics",
+      "Indo-European linguistics"
+    ],
+    "google_scholar_id": "r7gAWagAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=r7gAWagAAAAJ"
+  },
+  {
+    "name": "Niloufar Salehi",
+    "interests": [
+      "computer-mediated communication",
+      "human-computer interaction",
+      "artificial intelligence",
+      "community-engaged research/scholarship",
+      "research practice partnership",
+      "social justice research"
+    ],
+    "google_scholar_id": "dTVvvesAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=dTVvvesAAAAJ&hl=en"
+  },
+  {
+    "name": "William (Bill) D. Thompson",
+    "interests": [
+      "cognition",
+      "cognitive science",
+      "artificial intelligence",
+      "learning",
+      "Problem solving",
+      "Reasoning",
+      "decision-making",
+      "Bayesian statistics",
+      "natural language processing",
+      "machine learning",
+      "computational modeling",
+      "collective decision-making",
+      "social networks"
+    ],
+    "google_scholar_id": "vOHeGXcAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=vOHeGXcAAAAJ&hl=en"
+  },
+  {
+    "name": "David Bates",
+    "interests": [
+      "artificial intelligence",
+      "enlightenment",
+      "early Modern European intellectual history",
+      "20th century European and American intellectual history",
+      "history and theory of media and technology",
+      "history of political thought"
+    ],
+    "google_scholar_id": "L1l0wZ0AAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=L1l0wZ0AAAAJ&hl=en"
+  },
+  {
+    "name": "Nilah Ioannidis",
+    "interests": [
+      "computational biology",
+      "machine learning",
+      "artificial intelligence",
+      "genomics",
+      "personal genome interpretation",
+      "precision health",
+      "rare diseases",
+      "statistical genetics",
+      "molecular biology",
+      "biophysics"
+    ],
+    "google_scholar_id": "42m4tGIAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=42m4tGIAAAAJ&hl=en"
+  },
+  {
+    "name": "Anant Sahai",
+    "interests": [
+      "machine learning",
+      "artificial intelligence",
+      "information theory",
+      "communications theory",
+      "wireless communication",
+      "cognitive radio",
+      "distributed control",
+      "spectrum sensing",
+      "spectrum sharing",
+      "spectrum policy",
+      "power consumption in communications systems"
+    ],
+    "google_scholar_id": "4gWt4fgAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=4gWt4fgAAAAJ&hl=en"
+  },
+  {
+    "name": "Alice M. Agogino",
+    "interests": [
+      "intelligent learning systems",
+      "information retrieval and data mining",
+      "multiobjective and strategic product design",
+      "nonlinear optimization",
+      "probabilistic modeling",
+      "intelligent control and manufacturing",
+      "sensor validation and fusion and diagnostics",
+      "wireless sensor networks",
+      "multimedia and computer-aided design",
+      "design databases",
+      "design theory and methods",
+      "MEMS Synthesis and CAD",
+      "artificial intelligence and decision and expert systems",
+      "gender equity"
+    ],
+    "google_scholar_id": "G-xTgkgAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=G-xTgkgAAAAJ&hl=en"
+  },
+  {
+    "name": "Zachary Pardos",
+    "interests": [
+      "knowledge representation",
+      "adaptive learning",
+      "artificial intelligence",
+      "learning analytics",
+      "Recommender Systems",
+      "higher education",
+      "data science",
+      "Digital Learning Environments",
+      "cognitive modeling",
+      "Big Data in Education",
+      "Knowledge Tracing",
+      "Formative Assessment",
+      "intelligent tutoring systems",
+      "Online Learning",
+      "psychometrics",
+      "Educational Data Mining"
+    ],
+    "google_scholar_id": "OQvFtBMAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=OQvFtBMAAAAJ&hl=en"
+  },
+  {
+    "name": "S. Shankar Sastry",
+    "interests": [
+      "embedded and cyberphysical systems",
+      "artificial intelligence",
+      "AR/VR",
+      "computer science",
+      "robotics",
+      "arial robots",
+      "cybersecurity",
+      "cyber defense",
+      "homeland defense",
+      "nonholonomic systems",
+      "control of hybrid systems",
+      "sensor networks",
+      "interactive visualization",
+      "robotic telesurgery",
+      "rapid prototyping"
+    ],
+    "google_scholar_id": "KgZxzjsAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=KgZxzjsAAAAJ&hl=en"
+  },
+  {
+    "name": "Ronald Rael",
+    "interests": [
+      "3D printed buildings",
+      "additive manufacturing",
+      "earth architecture",
+      "mud",
+      "artificial intelligence",
+      "U.S.-Mexico border wall",
+      "arid landscapes",
+      "ranching",
+      "acequias",
+      "alipne deserts",
+      "ceramics",
+      "rural architecture",
+      "ruralism",
+      "animation",
+      "digital modeling",
+      "furry buildings",
+      "unnatural materials",
+      "rasquachetecture"
+    ],
+    "google_scholar_id": "T_uEZ9EAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=T_uEZ9EAAAAJ&hl=en"
+  },
+  {
+    "name": "James O'Brien",
+    "interests": [
+      "computer graphics",
+      "fluid dynamics",
+      "computer simulation",
+      "physically based animation",
+      "finite element simulation",
+      "human perception",
+      "image forensics",
+      "video forensics",
+      "computer animation",
+      "special effects for film",
+      "video game technology",
+      "motion capture",
+      "machine learning",
+      "facial animation",
+      "artificial intelligence",
+      "geometric algorithms",
+      "geometric design and modeling"
+    ],
+    "google_scholar_id": "UWZA0v4AAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=UWZA0v4AAAAJ&hl=en"
+  },
+  {
+    "name": "Ron E. Hassner",
+    "interests": [
+      "international relations",
+      "international security",
+      "religion and conflict",
+      "Israel",
+      "military intelligence",
+      "torture",
+      "interrogation"
+    ],
+    "google_scholar_id": "rSyHXuIAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=rSyHXuIAAAAJ&hl=en"
+  },
+  {
+    "name": "Matthew B. Francis",
+    "interests": [
+      "materials chemistry",
+      "drug delivery",
+      "organic chemistry",
+      "Protein modification",
+      "artificial photosynthesis",
+      "water purification"
+    ],
+    "google_scholar_id": "2jbQJAwAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=2jbQJAwAAAAJ&hl=en"
+  },
+  {
+    "name": "Tony M. Keaveny",
+    "interests": [
+      "biomechanics of bone",
+      "orthopaedic biomechanics",
+      "design of artificial joints",
+      "osteoporosis",
+      "finite element modeling",
+      "clinical biomechanics"
+    ],
+    "google_scholar_id": "b3jQk88AAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=b3jQk88AAAAJ&hl=en"
+  },
+  {
+    "name": "Erin Michelle Turner Kerrison",
+    "interests": [
+      "crime",
+      "criminal justice",
+      "drug control",
+      "gender",
+      "health disparities",
+      "inequality",
+      "law",
+      "mass incarceration",
+      "mental health",
+      "mixed methods",
+      "policing",
+      "policy",
+      "poverty",
+      "prisons",
+      "punishment",
+      "race",
+      "risk",
+      "reentry",
+      "substance abuse",
+      "trauma",
+      "violence",
+      "race and gender",
+      "artificial intelligence",
+      "data science",
+      "social work and education",
+      "social work",
+      "public impact research/scholarship",
+      "social justice research"
+    ],
+    "google_scholar_id": "ZS4tfssAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=ZS4tfssAAAAJ&hl=en"
+  },
+  {
+    "name": "Peidong Yang",
+    "interests": [
+      "materials chemistry",
+      "solid state chemistry",
+      "nanoscience",
+      "energy science",
+      "semiconductor nanowires",
+      "nanophotonics",
+      "artificial photosynthesis",
+      "electrochemistry",
+      "photoelectrochemistry",
+      "electrocatalysis",
+      "photocatalysis"
+    ],
+    "google_scholar_id": "3XzcVwEAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=3XzcVwEAAAAJ&hl=en"
+  },
+  {
+    "name": "Robert J. Full",
+    "interests": [
+      "energetics",
+      "comparative biomechanics",
+      "arthropod",
+      "adhesion",
+      "comparative physiology",
+      "locomotion",
+      "neuromechanics",
+      "biomimicry",
+      "biological inspiration",
+      "reptile",
+      "gecko",
+      "amphibian",
+      "robots",
+      "artificial muscles"
+    ],
+    "google_scholar_id": "kwqPtgcAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=kwqPtgcAAAAJ&hl=en"
+  },
+  {
+    "name": "Shaofan Li",
+    "interests": [
+      "applications of artificial intelligence and machine learning in engineering and sciences",
+      "structural mechanics",
+      "computational mechanics",
+      "computational materials",
+      "computational mechanics and computational physics",
+      "finite element methods and meshfree particle methods",
+      "ferroelectric and piezoelectric materials",
+      "atomistic simulation and multiscale simulations",
+      "nonlinear continuum mechanics",
+      "soft matter mechanics",
+      "wave propagations",
+      "modeling and simulation of fracture",
+      "dislocations",
+      "modeling and simulation of material failures",
+      "nano-mechanics",
+      "bio-mechanics and bio-physics",
+      "cellular mechanics",
+      "micromechanics & composite materials",
+      "mechanics and physics of amorphous materials"
+    ],
+    "google_scholar_id": "LIVqPuwAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=LIVqPuwAAAAJ&hl=en"
+  },
+  {
+    "name": "Michael W. Zuerch",
+    "interests": [
+      "collective phenomena in material",
+      "chemical material dynamics in surfaces and interfaces",
+      "symmetry-broken states and their emergence in condensed-phase systems",
+      "dynamical properties in artificial and correlated superlattices",
+      "ultrafast spectroscopy from THz to X-rays"
+    ],
+    "google_scholar_id": "qEYyO0cAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=qEYyO0cAAAAJ&hl=en"
+  },
+  {
+    "name": "Kyriakos Komvopoulos",
+    "interests": [
+      "contact mechanics",
+      "fracture and fatigue of engineering materials",
+      "finite element modeling of surface contact and machining",
+      "thin-film processing and characterization",
+      "adhesion and fatigue of MEMS devices",
+      "plasma-assisted surface functionalization of biomaterials",
+      "surface patterning for cell adhesion and growth control",
+      "mechanics & tribology of magnetic recording devices",
+      "microfibrous scaffolds for tissue engineering",
+      "tribology and mechanics of artificial joints",
+      "mechanical metamaterials"
+    ],
+    "google_scholar_id": "4ABtddoAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=4ABtddoAAAAJ&hl=en"
+  },
+  {
+    "name": "Claire Tomlin",
+    "interests": [
+      "electrical engineering",
+      "computer sciences",
+      "control",
+      "biosystems",
+      "control theory",
+      "intelligent systems",
+      "robotics",
+      "hybrid and embedded systems",
+      "biological cell networks"
+    ],
+    "google_scholar_id": "-5_ksIkAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=-5_ksIkAAAAJ&hl=en"
+  },
+  {
+    "name": "Murat Arcak",
+    "interests": [
+      "control",
+      "intelligent systems and robotics",
+      "Cyber-Physical Systems",
+      "networks",
+      "transportation",
+      "applications of system theory to aerospace problems",
+      "Systems and Synthetic Biology"
+    ],
+    "google_scholar_id": "rtmW640AAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=rtmW640AAAAJ&hl=en"
+  },
+  {
+    "name": "Roberto Horowitz",
+    "interests": [
+      "adaptive control",
+      "machine learning",
+      "learning and nonlinear control",
+      "control of robot manipulators",
+      "computer mechatronics systems",
+      "micro-electromechanical systems (MEMS)",
+      "intelligent vehicle",
+      "highways systems"
+    ],
+    "google_scholar_id": "wLf0Vw0AAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=wLf0Vw0AAAAJ&hl=en"
+  },
+  {
+    "name": "Weiqiang Zhu",
+    "interests": [
+      "earthquake physics",
+      "geophysical signal discovery"
+    ],
+    "google_scholar_id": "ApsNeMkAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=ApsNeMkAAAAJ&hl=en"
+  },
+  {
+    "name": "Alessandra Lanzara",
+    "interests": [
+      "materials science",
+      "ultrafast science",
+      "quantum materials",
+      "sustainable materials",
+      "topological phases of matter"
+    ],
+    "google_scholar_id": "p6bqyI0AAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=p6bqyI0AAAAJ&hl=en"
+  },
+  {
+    "name": "Joshua Bloom",
+    "interests": [
+      "machine learning",
+      "gamma-ray bursts",
+      "supernovae",
+      "time-domain astronomy",
+      "data-driven discovery"
+    ],
+    "google_scholar_id": "fHkUYk0AAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=fHkUYk0AAAAJ&hl=en"
+  },
+  {
+    "name": "Karen Nakamura",
+    "interests": [
+      "disability",
+      "Japan",
+      "disability studies",
+      "queer studies",
+      "LGBTQ communities",
+      "social cultural anthropology",
+      "medical and psychiatric anthropology",
+      "community-engaged research/scholarship",
+      "community-based research partnerships"
+    ],
+    "google_scholar_id": "VYgXrmIAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=VYgXrmIAAAAJ&hl=en"
+  },
+  {
+    "name": "Daniela Kaufer",
+    "interests": [
+      "neuroscience",
+      "aging",
+      "dementia",
+      "stress",
+      "epilepsy",
+      "traumatic brain injury",
+      "blood brain barrier",
+      "resilience",
+      "trauma",
+      "psychedelics",
+      "glia",
+      "myelin"
+    ],
+    "google_scholar_id": "ffvx2DoAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=ffvx2DoAAAAJ&hl=en"
+  },
+  {
+    "name": "Anastassia Fedyk",
+    "interests": [
+      "finance",
+      "behavioral economics",
+      "labor and finance",
+      "role of information technology in financial markets"
+    ],
+    "google_scholar_id": "c1Os8mYAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=c1Os8mYAAAAJ&hl=en"
+  },
+  {
+    "name": "Kirk Bansak",
+    "interests": [
+      "causal inference",
+      "experimental design and analysis",
+      "algorithmic decision-making",
+      "refugee resettlement and asylum politics",
+      "public opinion",
+      "survey methodology"
+    ],
+    "google_scholar_id": "M8cYOGUAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=M8cYOGUAAAAJ&hl=en"
+  },
+  {
+    "name": "Mohammad Reza Kaazempur Mofrad",
+    "interests": [
+      "molecular cell biomechanics",
+      "bacterial communities / microbiomes",
+      "deep learning for biology and medicine"
+    ],
+    "google_scholar_id": "M_2HfTIAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=M_2HfTIAAAAJ&hl=en"
+  },
+  {
+    "name": "Jose M. Carmena",
+    "interests": [
+      "brain-machine interfaces",
+      "neural ensemble computation",
+      "neuroprosthetics",
+      "sensorimotor learning and control"
+    ],
+    "google_scholar_id": "c5ysyXkAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=c5ysyXkAAAAJ&hl=en"
+  },
+  {
+    "name": "John F. Hartwig",
+    "interests": [
+      "inorganic chemistry",
+      "organometallic chemistry",
+      "catalysis",
+      "organic chemistry"
+    ],
+    "google_scholar_id": "j8g1fe8AAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=j8g1fe8AAAAJ&hl=en"
+  },
+  {
+    "name": "Masayoshi Tomizuka",
+    "interests": [
+      "robotics",
+      "mechatronics",
+      "control systems theory",
+      "digital control",
+      "dynamic systems",
+      "mechanical vibrations",
+      "adaptive and optimal control",
+      "motion control"
+    ],
+    "google_scholar_id": "8m8taGEAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=8m8taGEAAAAJ&hl=en"
+  },
+  {
+    "name": "Alberto Sangiovanni-Vincentelli",
+    "interests": [
+      "Cyber-Physical Systems",
+      "System design",
+      "Electronic Design Systems",
+      "embedded system design",
+      "control",
+      "integrated circuits",
+      "theory",
+      "Machine learning applications to Energy Efficient Building and Health"
+    ],
+    "google_scholar_id": "AhgjQ2QAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=AhgjQ2QAAAAJ&hl=en"
+  },
+  {
+    "name": "Grigory Tikhomirov",
+    "interests": [
+      "bioengineering",
+      "nanofabrication",
+      "nanorobotics",
+      "biosystems and computational biology",
+      "energy",
+      "integrated circuits",
+      "micro/nano electro mechanical systems",
+      "physical electronics"
+    ],
+    "google_scholar_id": "ZNYYv18AAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=ZNYYv18AAAAJ&hl=en"
+  },
+  {
+    "name": "Carmine Emanuele Cella",
+    "interests": [
+      "mathematical representation of musical and acoustic signals",
+      "music composition"
+    ],
+    "google_scholar_id": "ai5ebQkAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=ai5ebQkAAAAJ&hl=en"
+  },
+  {
+    "name": "Iris D. Tommelein",
+    "interests": [
+      "lean construction",
+      "lean production",
+      "design management",
+      "sustainability",
+      "supply-chain management",
+      "life-cycle engineering",
+      "civil infrastructure systems",
+      "adaptive project leadership",
+      "engineering project management",
+      "megaproject delivery",
+      "construction process engineering",
+      "integrated project delivery IPD",
+      "building information modeling BIM",
+      "virtual design and construction VDC"
+    ],
+    "google_scholar_id": "NoTPL0wAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=NoTPL0wAAAAJ&hl=en"
+  },
+  {
+    "name": "Hannes Bajohr",
+    "interests": [
+      "digital writing technologies",
+      "language and literature",
+      "German philosophical tradition in the 20th century",
+      "liberal and republican political theory"
+    ],
+    "google_scholar_id": "WcpiFUQAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=WcpiFUQAAAAJ&hl=de"
+  },
+  {
+    "name": "Boubacar Kante",
+    "interests": [
+      "optoelectronics",
+      "quantum optics",
+      "optimization",
+      "Antennas",
+      "Biophysics and Sensing"
+    ],
+    "google_scholar_id": "ugMdl90AAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=ugMdl90AAAAJ&hl=en"
+  },
+  {
+    "name": "Richard Ivry",
+    "interests": [
+      "cognitive neuroscience",
+      "behavior",
+      "cognition",
+      "brain",
+      "attention",
+      "coordination",
+      "psychology",
+      "motor and perceptual processes in normal and neurologically impaired populations",
+      "temporal processing",
+      "executive control"
+    ],
+    "google_scholar_id": "nicnuy4AAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=nicnuy4AAAAJ&hl=en"
+  },
+  {
+    "name": "Hannah Stuart",
+    "interests": [
+      "robotics",
+      "dynamics",
+      "design-based research",
+      "exoskeleton systems",
+      "bioinspired robots",
+      "marine systems",
+      "dexterous manipulation",
+      "hands",
+      "grasping",
+      "Mechanism Design",
+      "human-robot interaction"
+    ],
+    "google_scholar_id": "bLH3dWgAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=bLH3dWgAAAAJ&hl=en"
+  },
+  {
+    "name": "Raluca Ada Popa",
+    "interests": [
+      "computer security",
+      "applied cryptography"
+    ],
+    "google_scholar_id": "NvKHgzkAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=NvKHgzkAAAAJ&hl=en"
+  },
+  {
+    "name": "Alastair Iles",
+    "interests": [
+      "chemicals policy and politics",
+      "sustainable food systems",
+      "environmental STS",
+      "sustainability transitions",
+      "sustainability learning and societal change"
+    ],
+    "google_scholar_id": "nP1F-QsAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=nP1F-QsAAAAJ&hl=en"
+  },
+  {
+    "name": "Dennis Baldocchi",
+    "interests": [
+      "biometeorology",
+      "climate change and ecosystems",
+      "biosphere-atmosphere interactions",
+      "agricultural meteorology",
+      "ecosystem ecology",
+      "carbon cycle",
+      "evaporation",
+      "ecohydrology"
+    ],
+    "google_scholar_id": "dJ8MMFoAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=dJ8MMFoAAAAJ&hl=en"
+  },
+  {
+    "name": "Yaniv Konchitchki",
+    "interests": [
+      "Monetary economics",
+      "macroeconomics",
+      "macro-finance",
+      "Financial-based solutions to world's grand challenges",
+      "capital markets research",
+      "financial accounting",
+      "FinTech",
+      "financial technology and innovation",
+      "financial statement analysis",
+      "asset pricing",
+      "macro-accounting"
+    ],
+    "google_scholar_id": "nje5fjEAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=nje5fjEAAAAJ&hl=en"
+  },
+  {
+    "name": "Timothy Tangherlini",
+    "interests": [
+      "folklore",
+      "Danish culture",
+      "Danish cinema",
+      "Danish literature",
+      "19th and 20th Century Scandinavian literature",
+      "digital humanities",
+      "culture analysis",
+      "machine learning",
+      "networks",
+      "Korean culture",
+      "public impact research/scholarship",
+      "community-engaged research/scholarship"
+    ],
+    "google_scholar_id": "9lmyivIAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=9lmyivIAAAAJ&hl=en"
+  },
+  {
+    "name": "Avideh Zakhor",
+    "interests": [
+      "signal processing",
+      "image processing",
+      "computer vision",
+      "Deep Learning"
+    ],
+    "google_scholar_id": "NDHbbuAAAAAJ",
+    "scholar_profile_url": "https://scholar.google.com/citations?user=NDHbbuAAAAAJ&hl=en"
+  }
+]
