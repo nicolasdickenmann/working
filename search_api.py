@@ -6,8 +6,10 @@ import json
 import os
 from dotenv import load_dotenv
 
-# Load environment variables from config.env
-load_dotenv('config.env')
+# Load environment variables from config.env (for local development)
+# For Vercel, environment variables will be set in the Vercel dashboard
+if os.path.exists('config.env'):
+    load_dotenv('config.env')
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
@@ -15,7 +17,7 @@ CORS(app)  # Enable CORS for all routes
 # Configure Gemini API from environment
 GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
 if not GOOGLE_API_KEY:
-    raise ValueError("GOOGLE_API_KEY not found in config.env")
+    raise ValueError("GOOGLE_API_KEY not found in environment variables")
 
 genai.configure(api_key=GOOGLE_API_KEY)
 EMBEDDING_MODEL = 'embedding-001'
@@ -172,9 +174,4 @@ def explain_match():
         print(f"Error calling Gemini: {e}")
         explanation = "Could not generate explanation at this time."
 
-    return jsonify({'explanation': explanation})
-
-if __name__ == '__main__':
-    print("Starting search API server...")
-    print(f"Vector database loaded with {len(vector_database)} entries")
-    app.run(host='0.0.0.0', port=5000, debug=True) 
+    return jsonify({'explanation': explanation}) 
