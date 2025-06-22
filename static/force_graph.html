@@ -4,8 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Berkeley Faculty Network - 3D Force Graph</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
     <style>
+        @font-face {
+            font-family: 'JetBrains Mono';
+            src: url('../fonts/JetBrainsMono-2.304/fonts/webfonts/JetBrainsMono-Regular.woff2') format('woff2');
+            
+        }
+        @font-face {
+            font-family: 'JetBrains Mono';
+            src: url('../fonts/JetBrainsMono-2.304/fonts/webfonts/JetBrainsMono-Bold.woff2') format('woff2');
+            font-weight: 100;
+            font-style: normal;
+            font-display: swap;
+        }
         body {
+            font-family: 'JetBrains Mono';
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
@@ -52,6 +66,7 @@
             gap: 10px;
             align-items: center;
             border: 1px solid rgba(255, 255, 255, 0.2);
+            font-family: 'JetBrains Mono', monospace;
         }
         
         #search-input {
@@ -62,6 +77,7 @@
             color: white;
             width: 300px;
             font-size: 14px;
+            font-family: 'JetBrains Mono', monospace;
         }
         
         #search-input::placeholder {
@@ -76,6 +92,7 @@
             border-radius: 4px;
             cursor: pointer;
             font-size: 14px;
+            font-family: 'JetBrains Mono', monospace;
         }
         
         #search-button:hover {
@@ -90,6 +107,7 @@
             border-radius: 4px;
             cursor: pointer;
             font-size: 14px;
+            font-family: 'JetBrains Mono', monospace;
         }
         
         #clear-button:hover {
@@ -123,8 +141,83 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        .loading {
+        #result-cards-container {
+            position: fixed;
+            top: 50%;
+            left: 18px;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 100;
+            pointer-events: none;
+            justify-content: center;
+            height: auto;
+        }
+        .result-card {
+            background: rgba(0,0,0,0.9);
+            color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+            padding: 6px 8px;
+            min-width: 90px;
+            max-width: 110px;
+            cursor: pointer;
+            transition: transform 0.15s, box-shadow 0.15s;
+            pointer-events: auto;
+            border: 1.5px solid #444;
+            font-family: 'JetBrains Mono', monospace;
+            margin-right: 0;
+        }
+        .result-card:hover {
+            transform: translateX(8px) scale(1.04);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+            border-color: #888;
+        }
+        .result-card-title {
+            font-size: 0.9em;
+            color: #fff;
+            margin-bottom: 6px;
+            text-align: center;
+        }
+        #abstract-modal {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: rgba(0,0,0,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 200;
+        }
+        #abstract-modal-content {
+            background: rgba(0,0,0,0.95);
+            color: #fff;
+            border-radius: 8px;
+            max-width: 500px;
+            padding: 32px 28px 24px 28px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+            position: relative;
+            font-family: 'JetBrains Mono', monospace;
+            border: 1.5px solid #444;
+        }
+        #abstract-modal-content .close-btn {
             position: absolute;
+            top: 12px; right: 18px;
+            font-size: 1.5em;
+            color: #1976d2;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        #abstract-modal-content h3 {
+            margin-top: 0;
+            color: #82caff;
+        }
+        #abstract-modal-content p {
+            margin-bottom: 0;
+            color: #fff;
+        }
+        .loading {
+            position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
@@ -134,7 +227,17 @@
             border-radius: 8px;
             border: 1px solid rgba(255, 255, 255, 0.2);
             pointer-events: auto;
+            z-index: 9999;
         }
+        
+        /* Hide 3d-force-graph control instructions overlay */
+        #graph-container > div[style*="rotate"],
+        #graph-container > div[style*="controls"],
+        #graph-container > div[style*="Click"],
+        #graph-container > canvas + div {
+          display: none !important;
+        }
+        
     </style>
 </head>
 <body>
@@ -148,10 +251,13 @@
                 <button id="clear-button" onclick="clearSearch()">Clear</button>
             </div>
             
-            <div id="search-results"></div>
-            
             <div class="loading" id="loading">Loading network data...</div>
         </div>
+    </div>
+
+    <div id="result-cards-container"></div>
+    <div id="abstract-modal" style="display:none;">
+        <div id="abstract-modal-content"></div>
     </div>
 
     <script src="https://unpkg.com/3d-force-graph"></script>
@@ -164,13 +270,14 @@
           "#a0f1ff", "#aafcff", "#b4ffff", "#c0ffff", "#d6ffff"
         ];
         const clickedColor = "#1976d2"; // Special blue for clicked node
-        const defaultColor = "#888";
+        const defaultColor = "#fff";
 
         let Graph;
         let vectorDatabase = [];
         let graphData = null;
         let searchResults = {};
         let lastClickedNodeId = null;
+        let lastSearchQuery = '';
         
         // Check if ForceGraph3D is available
         function checkLibrary() {
@@ -226,7 +333,7 @@
                 // Load both datasets
                 await loadVectorDatabase();
                 
-                const response = await fetch('static/forcegraph_data.json');
+                const response = await fetch('static/forcegraph_data_3.json');
                 graphData = await response.json();
                 
                 // Set all nodes to default color initially
@@ -237,18 +344,32 @@
                 // Initialize the 3D Force Graph
                 Graph = ForceGraph3D()(document.getElementById('graph-container'));
                 Graph.graphData(graphData);
-                Graph.nodeLabel('name');
-                Graph.nodeColor(() => '#ffffff');
+                Graph.nodeLabel(node =>
+                  `<div style="text-align:center;">
+                    <a href="https://scholar.google.com/citations?user=${node.id}" target="_blank" style="color:#82caff; text-decoration:underline; font-weight:bold;">
+                      ${node.name}
+                    </a>
+                  </div>`
+                );
+                Graph.nodeColor(node => node.color);
                 Graph.nodeRelSize(6);
-                Graph.linkColor(() => '#ffffff');
-                Graph.linkOpacity(0.4);
+                Graph.linkColor(link => {
+                    let targetId = typeof link.target === 'object' ? link.target.id : link.target;
+                    let targetNode = graphData.nodes.find(n => n.id === targetId);
+                    return targetNode && targetNode.color ? targetNode.color : '#fff';
+                });
+                
                 Graph.linkWidth(1);
                 Graph.d3Force('charge').strength(-400);
                 Graph.d3Force('link').distance(100);
-                Graph.onNodeClick(onNodeClick);
+                Graph.onNodeClick(node => {
+                    window.open(`https://scholar.google.com/citations?user=${node.id}`, '_blank');
+                });
                 Graph.onBackgroundClick(() => {
                     // No color reset needed
                 });
+                
+                Graph.linkOpacity(1.0);
                 
             } catch (error) {
                 console.error('Error loading data:', error);
@@ -258,25 +379,48 @@
         
         // --- SEARCH COLORING ---
         function colorNodesBySearchResults(results) {
-            // Reset all to default
+            // Reset all to white before search
             graphData.nodes.forEach(node => node.color = defaultColor);
             lastClickedNodeId = null;
 
             // Sort results by similarity descending
             const sorted = [...results].sort((a, b) => b.similarity - a.similarity);
-            // Assign blue shades to top 20
-            sorted.slice(0, 20).forEach((result, idx) => {
+            // Assign blue shades to top 200, 10 per color bucket
+            const bucketSize = 10;
+            const maxBuckets = bluePalette.length; // 20
+            // Keep track of top 200 node ids
+            const topNodeIds = new Set();
+            sorted.slice(0, bucketSize * maxBuckets).forEach((result, idx) => {
                 const node = graphData.nodes.find(n => n.id === result.author_id);
-                if (node) node.color = bluePalette[idx];
+                if (node) {
+                    // Reverse: brightest for highest similarity
+                    const bucket = Math.floor(idx / bucketSize);
+                    const reversedBucket = maxBuckets - 1 - Math.min(bucket, maxBuckets - 1);
+                    node.color = bluePalette[reversedBucket];
+                    topNodeIds.add(node.id);
+                }
+            });
+
+            // All other nodes (not in top 200) are #444 after search
+            graphData.nodes.forEach(node => {
+                if (!topNodeIds.has(node.id)) node.color = '#444';
             });
 
             Graph.nodeColor(node => node.color);
+            Graph.linkColor(link => {
+                let targetId = typeof link.target === 'object' ? link.target.id : link.target;
+                let targetNode = graphData.nodes.find(n => n.id === targetId);
+                return targetNode && targetNode.color ? targetNode.color : '#444';
+            });
+
+            showResultCards(results);
         }
         
         // --- SEARCH FUNCTION ---
         async function performSearch() {
             const query = document.getElementById('search-input').value.trim();
             if (!query) return;
+            lastSearchQuery = query;
             
             console.log('Performing semantic search for:', query);
             
@@ -298,7 +442,6 @@
                 console.log('API response:', data);
                 
                 colorNodesBySearchResults(data.results);
-                displaySearchResults(data.results, data.results);
                 
             } catch (error) {
                 console.error('Error performing search:', error);
@@ -308,43 +451,32 @@
         
         // --- NODE CLICK HANDLER ---
         function onNodeClick(node) {
-            // Reset all to default or their search color
+            // Set all nodes to #333 except the clicked node
             graphData.nodes.forEach(n => {
-                // If node is in bluePalette, keep it, else reset to default
-                if (!bluePalette.includes(n.color)) n.color = defaultColor;
+                n.color = (n.id === node.id) ? clickedColor : '#333';
             });
-            // Set clicked node to clickedColor
-            node.color = clickedColor;
             lastClickedNodeId = node.id;
             Graph.nodeColor(n => n.color);
-        }
-        
-        // --- SEARCH RESULTS DISPLAY (unchanged) ---
-        function displaySearchResults(results, apiResults) {
-            const resultsDiv = document.getElementById('search-results');
-            
-            if (Object.keys(results).length === 0) {
-                resultsDiv.innerHTML = '<p>No results found</p>';
-            } else {
-                let html = '<h4>Top Results (Cosine Similarity):</h4>';
-                apiResults.forEach((result, index) => {
-                    const authorName = graphData.nodes.find(n => n.id === result.author_id)?.name || result.author_id;
-                    html += `<p><strong>${index + 1}. ${authorName}</strong> (${(result.similarity * 100).toFixed(1)}% similarity)</p>`;
-                    html += `<p style="font-size: 12px; color: #ccc; margin-left: 20px;">${result.text}</p>`;
-                });
-                resultsDiv.innerHTML = html;
-            }
-            resultsDiv.style.display = 'block';
+            Graph.linkColor(link => {
+                let targetId = typeof link.target === 'object' ? link.target.id : link.target;
+                let targetNode = graphData.nodes.find(n => n.id === targetId);
+                return targetNode && targetNode.color ? targetNode.color : '#333';
+            });
         }
         
         // --- CLEAR SEARCH ---
         function clearSearch() {
             document.getElementById('search-input').value = '';
-            document.getElementById('search-results').style.display = 'none';
+            document.getElementById('result-cards-container').innerHTML = '';
             // Reset all node colors to default
             graphData.nodes.forEach(node => node.color = defaultColor);
             lastClickedNodeId = null;
             Graph.nodeColor(node => node.color);
+            Graph.linkColor(link => {
+                let targetId = typeof link.target === 'object' ? link.target.id : link.target;
+                let targetNode = graphData.nodes.find(n => n.id === targetId);
+                return targetNode && targetNode.color ? targetNode.color : defaultColor;
+            });
         }
         
         // Initialize everything
@@ -366,6 +498,54 @@
                 Graph.height(window.innerHeight);
             }
         });
+
+        function showResultCards(results) {
+            const container = document.getElementById('result-cards-container');
+            container.innerHTML = '';
+            if (!results || results.length === 0) return;
+
+            results.slice(0, 7).forEach((result, idx) => {
+                const card = document.createElement('div');
+                card.className = 'result-card';
+                const node = graphData.nodes.find(n => n.id === result.author_id);
+                const profName = node ? node.name : result.author_id;
+                card.innerHTML = `
+                    <div class="result-card-title">${profName}</div>
+                `;
+                card.onclick = () => showAbstractModal(result);
+                container.appendChild(card);
+            });
+        }
+
+        async function showAbstractModal(result) {
+            const modal = document.getElementById('abstract-modal');
+            const content = document.getElementById('abstract-modal-content');
+            content.innerHTML = `<span class="close-btn" onclick="closeAbstractModal()">&times;</span>
+                <div style="margin-bottom:8px; color:#fff; font-size:1em; font-weight:normal;">Loading explanation...</div>`;
+            modal.style.display = 'flex';
+
+            console.log("Requesting Gemini explanation for:", result.author_id, lastSearchQuery);
+            const response = await fetch('http://localhost:5000/explain_match', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ query: lastSearchQuery, author_id: result.author_id })
+            });
+            console.log("Received response from /explain_match");
+            const data = await response.json();
+            console.log("Gemini explanation:", data.explanation);
+            content.innerHTML = `<span class="close-btn" onclick="closeAbstractModal()">&times;</span>
+                <div style="margin-bottom:8px; color:#fff; font-size:1em; font-weight:normal;">${result.profName}</div>
+                <div style="margin-bottom:10px;"><b>Why this professor matches your search:</b></div>
+                <div style="font-size:1em;line-height:1.5;">${data.explanation}</div>
+                <div style="margin-top:18px;">
+                    <a href="https://scholar.google.com/citations?user=${result.author_id}" target="_blank" style="color:#1976d2;text-decoration:underline;">View Google Scholar Profile</a>
+                </div>`;
+        }
+
+        function closeAbstractModal() {
+            document.getElementById('abstract-modal').style.display = 'none';
+        }
+
     </script>
 </body>
 </html> 

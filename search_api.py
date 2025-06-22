@@ -23,7 +23,7 @@ EMBEDDING_MODEL = 'embedding-001'
 # Load vector database
 def load_vector_database():
     try:
-        with open('static/vector_database.json', 'r') as f:
+        with open('static/vectorbig.json', 'r') as f:
             return json.load(f)
     except Exception as e:
         print(f"Error loading vector database: {e}")
@@ -100,7 +100,7 @@ def search():
         final_results.sort(key=lambda x: x['similarity'], reverse=True)
         
         # Take top 20 results
-        final_results = final_results[:20]
+        final_results = final_results[:200]
         
         print(f"Found {len(final_results)} results")
         

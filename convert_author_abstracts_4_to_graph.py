@@ -138,12 +138,12 @@ def convert_author_abstracts_4_to_graph(input_file, output_file):
 
 def main():
     """Main function"""
-    print("🚀 Converting author_abstracts_4.json to force graph format")
+    print("🚀 Converting author_abstracts_5.json to force graph format")
     print("=" * 60)
     
     # File paths
-    input_file = "nicolasdata/author_abstracts_4.json"
-    output_file = "static/forcegraph_data_4.json"
+    input_file = "nicolasdata/author_abstracts_5.json"
+    output_file = "static/forcegraph_data_3.json"
     
     # Check if input file exists
     if not os.path.exists(input_file):
