@@ -10,7 +10,7 @@ import json # Using json for saving/loading the database
 # If the environment variable is not set, you can paste your key directly.
 try:
     # Get the API key from an environment variable
-    GOOGLE_API_KEY = 'AIzaSyD6z0S9BKWelce8IonNS31L3adlq_KeByI'
+    GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
     genai.configure(api_key=GOOGLE_API_KEY)
 except KeyError:
     print("----------------------------------------------------------------------")
