@@ -5,6 +5,7 @@ import numpy as np
 import json
 import os
 from dotenv import load_dotenv
+from supabase import create_client, Client
 
 # Load environment variables from config.env (for local development)
 # For Vercel, environment variables will be set in the Vercel dashboard
@@ -22,17 +23,13 @@ if not GOOGLE_API_KEY:
 genai.configure(api_key=GOOGLE_API_KEY)
 EMBEDDING_MODEL = 'embedding-001'
 
-# Load vector database
-def load_vector_database():
-    try:
-        with open('static/vectorbig.json', 'r') as f:
-            return json.load(f)
-    except Exception as e:
-        print(f"Error loading vector database: {e}")
-        return []
+# Configure Supabase
+SUPABASE_URL = os.getenv('SUPABASE_URL')
+SUPABASE_KEY = os.getenv('SUPABASE_SERVICE_ROLE_KEY')
+if not SUPABASE_URL or not SUPABASE_KEY:
+    raise ValueError("Supabase credentials not found in environment variables")
 
-vector_database = load_vector_database()
-print(f"Loaded {len(vector_database)} entries from vector database")
+supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 def get_embedding(text):
     """Generate embedding for text using Gemini API"""
@@ -63,15 +60,17 @@ def cosine_similarity(vec_a, vec_b):
 
 # Add this helper function to collect all texts for an author
 def get_author_texts(author_id):
-    texts = []
-    for item in vector_database:
-        if author_id in item['author_ids']:
-            texts.append(item['text'])
-    return texts
+    """Get all texts for an author from Supabase"""
+    try:
+        response = supabase.table('embeddings').select('text').contains('author_ids', [author_id]).execute()
+        return [item['text'] for item in response.data]
+    except Exception as e:
+        print(f"Error getting author texts: {e}")
+        return []
 
 @app.route('/search', methods=['POST'])
 def search():
-    """Search endpoint that performs semantic search"""
+    """Search endpoint that performs semantic search using Supabase"""
     try:
         data = request.get_json()
         query = data.get('query', '').strip()
@@ -86,39 +85,48 @@ def search():
         if not query_embedding:
             return jsonify({'error': 'Failed to generate query embedding'}), 500
         
-        # Calculate similarities with all database entries
-        results = []
-        for item in vector_database:
-            similarity = cosine_similarity(query_embedding, item['vector'])
-            if similarity > 0.1:  # Only include results with similarity > 0.1
+        # Search in Supabase using vector similarity
+        try:
+            response = supabase.rpc(
+                'match_embeddings',
+                {
+                    'query_embedding': query_embedding,
+                    'match_threshold': 0.1,
+                    'match_count': 200
+                }
+            ).execute()
+            
+            results = []
+            for item in response.data:
                 for author_id in item['author_ids']:
                     results.append({
                         'author_id': author_id,
-                        'similarity': similarity,
+                        'similarity': item['similarity'],
                         'text': item['text'][:200] + '...' if len(item['text']) > 200 else item['text']
                     })
-        
-        # Group by author_id and take the highest similarity for each author
-        author_results = {}
-        for result in results:
-            author_id = result['author_id']
-            if author_id not in author_results or result['similarity'] > author_results[author_id]['similarity']:
-                author_results[author_id] = result
-        
-        # Convert back to list and sort by similarity
-        final_results = list(author_results.values())
-        final_results.sort(key=lambda x: x['similarity'], reverse=True)
-        
-        # Take top 20 results
-        final_results = final_results[:200]
-        
-        print(f"Found {len(final_results)} results")
-        
-        return jsonify({
-            'query': query,
-            'results': final_results,
-            'total_found': len(final_results)
-        })
+            
+            # Group by author_id and take the highest similarity for each author
+            author_results = {}
+            for result in results:
+                author_id = result['author_id']
+                if author_id not in author_results or result['similarity'] > author_results[author_id]['similarity']:
+                    author_results[author_id] = result
+            
+            # Convert back to list and sort by similarity
+            final_results = list(author_results.values())
+            final_results.sort(key=lambda x: x['similarity'], reverse=True)
+            
+            print(f"Found {len(final_results)} results")
+            
+            return jsonify({
+                'query': query,
+                'results': final_results,
+                'total_found': len(final_results)
+            })
+            
+        except Exception as e:
+            print(f"Error searching Supabase: {e}")
+            return jsonify({'error': 'Database search failed'}), 500
         
     except Exception as e:
         print(f"Error in search: {e}")
@@ -127,10 +135,21 @@ def search():
 @app.route('/health', methods=['GET'])
 def health():
     """Health check endpoint"""
-    return jsonify({
-        'status': 'healthy',
-        'database_entries': len(vector_database)
-    })
+    try:
+        # Check if we can connect to Supabase
+        response = supabase.table('embeddings').select('id', count='exact').limit(1).execute()
+        count = response.count if response.count is not None else 0
+        return jsonify({
+            'status': 'healthy',
+            'database_entries': count,
+            'database_type': 'supabase_pgvector'
+        })
+    except Exception as e:
+        return jsonify({
+            'status': 'unhealthy',
+            'error': str(e),
+            'database_type': 'supabase_pgvector'
+        }), 500
 
 @app.route('/')
 def serve_force_graph():
