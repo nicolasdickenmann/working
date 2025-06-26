@@ -46,16 +46,15 @@ def get_embedding(text):
 
 def cosine_similarity(vec_a, vec_b):
     """Calculate cosine similarity between two vectors"""
-    vec_a = np.array(vec_a)
-    vec_b = np.array(vec_b)
-    
-    dot_product = np.dot(vec_a, vec_b)
-    norm_a = np.linalg.norm(vec_a)
-    norm_b = np.linalg.norm(vec_b)
-    
+    import math
+    # Ensure vectors are lists of floats
+    vec_a = list(vec_a)
+    vec_b = list(vec_b)
+    dot_product = sum(a * b for a, b in zip(vec_a, vec_b))
+    norm_a = math.sqrt(sum(a * a for a in vec_a))
+    norm_b = math.sqrt(sum(b * b for b in vec_b))
     if norm_a == 0 or norm_b == 0:
         return 0.0
-        
     return dot_product / (norm_a * norm_b)
 
 # Add this helper function to collect all texts for an author

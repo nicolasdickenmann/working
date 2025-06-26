@@ -2,6 +2,7 @@ import google.generativeai as genai
 import numpy as np
 import os
 import json # Using json for saving/loading the database
+import math
 
 # --- Configuration and Setup ---
 
@@ -54,28 +55,15 @@ def get_embedding(text):
         return None
 
 def cosine_similarity(vec_a, vec_b):
-    """
-    Calculates the cosine similarity between two vectors.
-
-    Args:
-        vec_a (np.array): The first vector.
-        vec_b (np.array): The second vector.
-
-    Returns:
-        float: The cosine similarity score.
-    """
-    # Ensure vectors are numpy arrays for efficient calculation
-    vec_a = np.array(vec_a)
-    vec_b = np.array(vec_b)
-    
-    dot_product = np.dot(vec_a, vec_b)
-    norm_a = np.linalg.norm(vec_a)
-    norm_b = np.linalg.norm(vec_b)
-    
-    # Avoid division by zero
+    """Calculate cosine similarity between two vectors"""
+    # Ensure vectors are lists of floats
+    vec_a = list(vec_a)
+    vec_b = list(vec_b)
+    dot_product = sum(a * b for a, b in zip(vec_a, vec_b))
+    norm_a = math.sqrt(sum(a * a for a in vec_a))
+    norm_b = math.sqrt(sum(b * b for b in vec_b))
     if norm_a == 0 or norm_b == 0:
         return 0.0
-        
     return dot_product / (norm_a * norm_b)
 
 # --- Database Management ---
