@@ -1,7 +1,6 @@
 from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS, cross_origin
 import google.generativeai as genai
-import numpy as np
 import json
 import os
 from dotenv import load_dotenv
