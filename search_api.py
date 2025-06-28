@@ -150,7 +150,7 @@ def health():
         }), 500
 
 @app.route('/')
-def serve_force_graph():
+def serve_launch_page():
     return send_from_directory('static', 'force_graph.html')
 
 @app.route('/explain_match', methods=['POST', 'OPTIONS'])
@@ -191,4 +191,8 @@ def explain_match():
         print(f"Error calling Gemini: {e}")
         explanation = "Could not generate explanation at this time."
 
-    return jsonify({'explanation': explanation}) 
+    return jsonify({'explanation': explanation})
+
+@app.route('/force_graph.html')
+def serve_force_graph():
+    return send_from_directory('static', 'force_graph.html') 

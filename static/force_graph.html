@@ -6,6 +6,14 @@
     <title>Berkeley Faculty Network - 3D Force Graph</title>
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
     <style>
+        /* CSS Custom Properties for easy opacity control */
+        :root {
+            --opacity-primary: 0.9;
+            --opacity-secondary: 0.3;
+            --opacity-tertiary: 0.1;
+            --opacity-background: 0.05;
+        }
+        
         @font-face {
             font-family: 'JetBrains Mono';
             src: url('../fonts/JetBrainsMono-2.304/fonts/webfonts/JetBrainsMono-Regular.woff2') format('woff2');
@@ -58,60 +66,87 @@
             top: 20px;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.9);
-            padding: 15px;
-            border-radius: 8px;
+            background: rgba(10, 10, 10, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 20px 24px;
+            border-radius: 16px;
             pointer-events: auto;
-            display: flex;
-            gap: 10px;
+            display: none; /* Hide by default, will be shown after launch */
+            gap: 12px;
             align-items: center;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1.5px solid rgba(130, 202, 255, 0.2);
             font-family: 'JetBrains Mono', monospace;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        #search-container:hover {
+            border-color: rgba(130, 202, 255, var(--opacity-primary));
+            box-shadow: 0 12px 40px rgba(0, 0, 0, var(--opacity-primary));
         }
         
         #search-input {
-            padding: 8px 12px;
+            padding: 12px 16px;
             border: none;
-            border-radius: 4px;
-            background: #333;
+            border-radius: 8px;
+            background: rgba(130, 202, 255, 0.1);
             color: white;
-            width: 300px;
+            width: 320px;
             font-size: 14px;
             font-family: 'JetBrains Mono', monospace;
+            border: 1px solid rgba(130, 202, 255, 0.2);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        
+        #search-input:focus {
+            outline: none;
+            border-color: rgba(130, 202, 255, 0.6);
+            background: rgba(130, 202, 255, 0.15);
+            box-shadow: 0 0 0 3px rgba(130, 202, 255, 0.1);
         }
         
         #search-input::placeholder {
-            color: #ccc;
+            color: rgba(130, 202, 255, 0.6);
         }
         
         #search-button {
-            background: #4CAF50;
+            background: linear-gradient(135deg, #1976d2 0%, #82caff 100%);
             color: white;
             border: none;
-            padding: 8px 16px;
-            border-radius: 4px;
+            padding: 12px 20px;
+            border-radius: 8px;
             cursor: pointer;
             font-size: 14px;
             font-family: 'JetBrains Mono', monospace;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(25, 118, 210, 0.3);
         }
         
         #search-button:hover {
-            background: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(25, 118, 210, var(--opacity-primary));
         }
         
         #clear-button {
-            background: #f44336;
+            background: linear-gradient(135deg, #d32f2f 0%, #f44336 100%);
             color: white;
             border: none;
-            padding: 8px 16px;
-            border-radius: 4px;
+            padding: 12px 20px;
+            border-radius: 8px;
             cursor: pointer;
             font-size: 14px;
             font-family: 'JetBrains Mono', monospace;
+            font-weight: bold;
+            display: none; /* Hide by default */
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(211, 47, 47, 0.3);
         }
         
         #clear-button:hover {
-            background: #da190b;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(211, 47, 47, var(--opacity-primary));
         }
         
         #search-results {
@@ -119,26 +154,39 @@
             top: 80px;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.9);
-            padding: 15px;
-            border-radius: 8px;
+            background: rgba(10, 10, 10, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 16px;
             max-width: 600px;
             max-height: 200px;
             overflow-y: auto;
             display: none;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1.5px solid rgba(130, 202, 255, 0.2);
             pointer-events: auto;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            font-family: 'JetBrains Mono', monospace;
         }
         
         #search-results h4 {
             margin-top: 0;
             margin-bottom: 10px;
+            color: #82caff;
+            font-weight: bold;
         }
         
         #search-results p {
             margin: 5px 0;
-            padding: 5px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(130, 202, 255, 0.1);
+            color: rgba(255, 255, 255, 0.9);
+            transition: all 0.2s ease;
+        }
+        
+        #search-results p:hover {
+            background: rgba(130, 202, 255, 0.1);
+            border-radius: 4px;
+            padding-left: 8px;
         }
         
         #result-cards-container {
@@ -155,30 +203,33 @@
             height: auto;
         }
         .result-card {
-            background: rgba(0,0,0,0.9);
+            background: rgba(10, 10, 10, 0.3);
+            backdrop-filter: blur(10px);
             color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.3);
-            padding: 6px 8px;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            padding: 12px 16px;
             min-width: 90px;
             max-width: 110px;
             cursor: pointer;
-            transition: transform 0.15s, box-shadow 0.15s;
+            transition: all 0.3s ease;
             pointer-events: auto;
-            border: 1.5px solid #444;
+            border: 1.5px solid rgba(130, 202, 255, 0.2);
             font-family: 'JetBrains Mono', monospace;
             margin-right: 0;
         }
         .result-card:hover {
             transform: translateX(8px) scale(1.04);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
-            border-color: #888;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, var(--opacity-primary));
+            border-color: rgba(130, 202, 255, 0.6);
+            background: rgba(130, 202, 255, var(--opacity-tertiary));
         }
         .result-card-title {
             font-size: 0.9em;
             color: #fff;
             margin-bottom: 6px;
             text-align: center;
+            font-weight: bold;
         }
         #abstract-modal {
             position: fixed;
@@ -190,23 +241,29 @@
             z-index: 200;
         }
         #abstract-modal-content {
-            background: rgba(0,0,0,0.95);
+            background: rgba(10, 10, 10, 0.3);
+            backdrop-filter: blur(15px);
             color: #fff;
-            border-radius: 8px;
+            border-radius: 16px;
             max-width: 500px;
             padding: 32px 28px 24px 28px;
-            box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.5);
             position: relative;
             font-family: 'JetBrains Mono', monospace;
-            border: 1.5px solid #444;
+            border: 1.5px solid rgba(130, 202, 255, 0.2);
         }
         #abstract-modal-content .close-btn {
             position: absolute;
             top: 12px; right: 18px;
             font-size: 1.5em;
-            color: #1976d2;
+            color: #82caff;
             cursor: pointer;
             font-weight: bold;
+            transition: all 0.2s ease;
+        }
+        #abstract-modal-content .close-btn:hover {
+            color: #fff;
+            transform: scale(1.1);
         }
         #abstract-modal-content h3 {
             margin-top: 0;
@@ -222,12 +279,413 @@
             left: 50%;
             transform: translate(-50%, -50%);
             font-size: 18px;
-            background: rgba(0, 0, 0, 0.9);
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(10, 10, 10, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 24px 32px;
+            border-radius: 16px;
+            border: 1.5px solid rgba(130, 202, 255, 0.2);
             pointer-events: auto;
             z-index: 9999;
+            color: #fff;
+            font-family: 'JetBrains Mono', monospace;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Hide 3d-force-graph control instructions overlay */
+        #graph-container > div[style*="rotate"],
+        #graph-container > div[style*="controls"],
+        #graph-container > div[style*="Click"],
+        #graph-container > canvas + div {
+          display: none !important;
+        }
+        
+        /* Launch screen animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        
+        /* Launch button hover effects */
+        #launch-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(25,118,210,0.6);
+        }
+        
+        #launch-btn:hover div {
+            left: 100%;
+        }
+        
+        /* Stats cards hover effects */
+        #author-stats > div > div:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(130,202,255,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        /* First level authors hover effects */
+        #first-level-authors > div > div:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(130,202,255,0.2);
+            border-color: #82caff;
+            transition: all 0.3s ease;
+        }
+        
+        /* Mobile Responsive Design */
+        @media (max-width: 768px) {
+            /* Launch screen mobile adjustments */
+            #launch-screen h1 {
+                font-size: 2.2em !important;
+                letter-spacing: 2px !important;
+                margin-bottom: 4px !important;
+            }
+            
+            #launch-screen p {
+                font-size: 1em !important;
+                margin-bottom: 24px !important;
+            }
+            
+            #author-stats {
+                margin-bottom: 32px !important;
+                font-size: 1em !important;
+            }
+            
+            #author-stats > div {
+                grid-template-columns: 1fr !important;
+                gap: 16px !important;
+                max-width: 320px !important;
+            }
+            
+            #author-stats > div > div {
+                padding: 16px !important;
+            }
+            
+            #author-stats > div > div > div:last-child {
+                font-size: 1.5em !important;
+            }
+            
+            #launch-btn {
+                padding: 16px 40px !important;
+                font-size: 1.1em !important;
+                border-radius: 40px !important;
+            }
+            
+            /* First level authors mobile adjustments */
+            #first-level-authors {
+                margin-bottom: 32px !important;
+            }
+            
+            #first-level-authors > div:first-child {
+                font-size: 1em !important;
+                margin-bottom: 16px !important;
+            }
+            
+            #first-level-authors > div:last-child {
+                grid-template-columns: 1fr !important;
+                gap: 12px !important;
+                max-width: 320px !important;
+            }
+            
+            #first-level-authors > div:last-child > div {
+                padding: 12px !important;
+            }
+            
+            #first-level-authors > div:last-child > div > div:first-child {
+                font-size: 0.9em !important;
+            }
+            
+            #first-level-authors > div:last-child > div > div:last-child {
+                font-size: 0.7em !important;
+            }
+            
+            /* Search container mobile adjustments */
+            #search-container {
+                top: 10px !important;
+                left: 10px !important;
+                right: 10px !important;
+                transform: none !important;
+                flex-direction: column !important;
+                gap: 8px !important;
+                padding: 12px !important;
+                width: auto !important;
+            }
+            
+            #search-input {
+                width: 100% !important;
+                max-width: none !important;
+                font-size: 16px !important; /* Prevents zoom on iOS */
+            }
+            
+            #search-button, #clear-button {
+                padding: 10px 16px !important;
+                font-size: 14px !important;
+                width: 100% !important;
+            }
+            
+            /* Search results mobile adjustments */
+            #search-results {
+                top: 120px !important;
+                left: 10px !important;
+                right: 10px !important;
+                transform: none !important;
+                max-width: none !important;
+                max-height: 150px !important;
+            }
+            
+            /* Result cards mobile adjustments */
+            #result-cards-container {
+                top: auto !important;
+                bottom: 20px !important;
+                left: 10px !important;
+                right: 10px !important;
+                transform: none !important;
+                flex-direction: row !important;
+                overflow-x: auto !important;
+                gap: 8px !important;
+                padding: 0 10px !important;
+                max-height: 80px !important;
+            }
+            
+            .result-card {
+                min-width: 120px !important;
+                max-width: 140px !important;
+                flex-shrink: 0 !important;
+                padding: 8px 10px !important;
+            }
+            
+            .result-card:hover {
+                transform: translateY(-4px) scale(1.02) !important;
+            }
+            
+            /* Abstract modal mobile adjustments */
+            #abstract-modal {
+                padding: 20px !important;
+            }
+            
+            #abstract-modal-content {
+                max-width: none !important;
+                width: 100% !important;
+                padding: 24px 20px 20px 20px !important;
+                margin: 0 !important;
+                max-height: 80vh !important;
+                overflow-y: auto !important;
+            }
+            
+            #abstract-modal-content .close-btn {
+                top: 8px !important;
+                right: 12px !important;
+                font-size: 1.8em !important;
+            }
+            
+            /* Loading screen mobile adjustments */
+            .loading {
+                font-size: 16px !important;
+                padding: 16px !important;
+                margin: 0 20px !important;
+                text-align: center !important;
+            }
+            
+            /* Background elements mobile adjustments */
+            #launch-screen > div:first-child > div {
+                width: 100px !important;
+                height: 100px !important;
+            }
+            
+            #launch-screen > div:first-child > div:nth-child(2) {
+                width: 80px !important;
+                height: 80px !important;
+            }
+            
+            #launch-screen > div:first-child > div:nth-child(3) {
+                width: 60px !important;
+                height: 60px !important;
+            }
+            
+            /* Mobile scrolling support */
+            body {
+                overflow: auto;
+                height: auto;
+                min-height: 100vh;
+            }
+            
+            /* Allow scrolling on launch screen for mobile */
+            #launch-screen {
+                overflow: auto !important;
+                height: auto !important;
+                min-height: 100vh !important;
+            }
+        }
+        
+        /* Small mobile devices */
+        @media (max-width: 480px) {
+            #launch-screen h1 {
+                font-size: 1.8em !important;
+                letter-spacing: 1px !important;
+            }
+            
+            #launch-screen p {
+                font-size: 0.9em !important;
+            }
+            
+            #author-stats > div {
+                max-width: 280px !important;
+                gap: 12px !important;
+            }
+            
+            #author-stats > div > div {
+                padding: 12px !important;
+            }
+            
+            #author-stats > div > div > div:last-child {
+                font-size: 1.3em !important;
+            }
+            
+            #launch-btn {
+                padding: 14px 32px !important;
+                font-size: 1em !important;
+            }
+            
+            /* First level authors small mobile adjustments */
+            #first-level-authors > div:last-child {
+                max-width: 280px !important;
+                gap: 10px !important;
+            }
+            
+            #first-level-authors > div:last-child > div {
+                padding: 10px !important;
+            }
+            
+            .result-card {
+                min-width: 100px !important;
+                max-width: 120px !important;
+            }
+        }
+        
+        /* Touch device optimizations */
+        @media (hover: none) and (pointer: coarse) {
+            /* Disable hover effects on touch devices */
+            #launch-btn:hover,
+            #author-stats > div > div:hover,
+            #first-level-authors > div > div:hover,
+            .result-card:hover {
+                transform: none !important;
+                box-shadow: none !important;
+            }
+            
+            /* Increase touch targets */
+            #search-button, #clear-button {
+                min-height: 44px !important;
+            }
+            
+            .result-card {
+                min-height: 44px !important;
+            }
+            
+            #first-level-authors > div > div {
+                min-height: 44px !important;
+            }
+            
+            #abstract-modal-content .close-btn {
+                min-width: 44px !important;
+                min-height: 44px !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
+        }
+        
+        /* Landscape orientation adjustments */
+        @media (max-width: 768px) and (orientation: landscape) {
+            #launch-screen {
+                padding: 20px !important;
+            }
+            
+            #launch-screen h1 {
+                font-size: 1.8em !important;
+                margin-bottom: 4px !important;
+            }
+            
+            #launch-screen p {
+                margin-bottom: 16px !important;
+            }
+            
+            #author-stats {
+                margin-bottom: 20px !important;
+            }
+            
+            #author-stats > div {
+                grid-template-columns: repeat(2, 1fr) !important;
+                max-width: 500px !important;
+                gap: 12px !important;
+            }
+            
+            #author-stats > div > div {
+                padding: 12px !important;
+            }
+            
+            #result-cards-container {
+                bottom: 10px !important;
+                max-height: 60px !important;
+            }
+            
+            /* First level authors landscape adjustments */
+            #first-level-authors {
+                margin-bottom: 20px !important;
+            }
+            
+            #first-level-authors > div:last-child {
+                grid-template-columns: repeat(2, 1fr) !important;
+                max-width: 500px !important;
+                gap: 10px !important;
+            }
+            
+            #first-level-authors > div:last-child > div {
+                padding: 10px !important;
+            }
+        }
+        
+        /* Animated background elements with CSS variables */
+        .bg-element-1 {
+            background: radial-gradient(circle, rgba(130,202,255,var(--opacity-primary)) 0%, transparent 70%);
+        }
+        .bg-element-2 {
+            background: radial-gradient(circle, rgba(25,118,210,var(--opacity-primary)) 0%, transparent 70%);
+        }
+        .bg-element-3 {
+            background: radial-gradient(circle, rgba(100,163,255,var(--opacity-primary)) 0%, transparent 70%);
+        }
+        
+        /* Launch screen background with CSS variables */
+        .launch-screen-bg {
+            background: linear-gradient(135deg, rgba(10,10,10,var(--opacity-secondary)) 0%, rgba(26,26,46,var(--opacity-primary)) 50%, rgba(22,33,62,var(--opacity-secondary)) 100%);
+        }
+        
+        /* Launch button with CSS variables */
+        .launch-btn-shadow {
+            box-shadow: 0 8px 32px rgba(25,118,210,var(--opacity-primary));
         }
         
         /* Hide 3d-force-graph control instructions overlay */
@@ -241,12 +699,91 @@
     </style>
 </head>
 <body>
+    <div id="launch-screen" style="position:fixed;top:0;left:0;width:100vw;height:100vh;background:linear-gradient(135deg, rgba(10,10,10,var(--opacity-secondary)) 0%, rgba(26,26,46,var(--opacity-primary)) 50%, rgba(22,33,62,var(--opacity-secondary)) 100%);backdrop-filter:blur(2px);z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;">
+        <!-- Animated background elements -->
+        <div style="position:absolute;top:0;left:0;width:100%;height:100%;opacity:var(--opacity-background);">
+            <div class="bg-element-1" style="position:absolute;top:20%;left:10%;width:200px;height:200px;animation:float 6s ease-in-out infinite;"></div>
+            <div class="bg-element-2" style="position:absolute;top:60%;right:15%;width:150px;height:150px;animation:float 8s ease-in-out infinite reverse;"></div>
+            <div class="bg-element-3" style="position:absolute;bottom:30%;left:20%;width:100px;height:100px;animation:float 7s ease-in-out infinite;"></div>
+        </div>
+        
+        <!-- Main content container -->
+        <div style="text-align:center;z-index:2;position:relative;">
+
+            
+            <!-- Title -->
+            <h1 style="font-family:'Anton',sans-serif;font-size:3.2em;color:#fff;margin-bottom:8px;letter-spacing:3px;text-shadow:0 4px 20px rgba(130,202,255,0.3);animation:fadeInUp 1s ease-out 0.2s both;">Research Nebula</h1>
+            
+            <!-- First Level Authors Section -->
+            <div id="first-level-authors" style="font-family:'JetBrains Mono',monospace;color:#fff;text-align:center;margin-bottom:48px;animation:fadeInUp 1s ease-out 0.7s both;">
+                <p style="font-size:1em;color:#fff;line-height:1.6;margin-bottom:20px;">
+                    Starting with 14 Berkley faculty, the network grows to 604 coauthors in the first degree and 12,275 coauthors in the second degree creating a graph of 12,336 authors and 19,956 connections.
+                </p>
+                <p style="font-family:'JetBrains Mono',monospace;color:#82caff;font-size:1.1em;margin-bottom:40px;opacity:0.8;animation:fadeInUp 1s ease-out 0.4s both;">The original 14:</p>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;max-width:800px;margin:0 auto;">
+                    <div style="background:rgba(130,202,255,0.1);padding:12px;border-radius:8px;border:1px solid rgba(130,202,255,0.2);backdrop-filter:blur(10px);transition:all 0.3s ease;cursor:pointer;" onclick="window.open('https://scholar.google.com/citations?user=8R35rCwAAAAJ', '_blank')">
+                        <div style="font-size:0.9em;color:#fff;font-weight:bold;">Sergey Levine</div>
+                    </div>
+                    <div style="background:rgba(130,202,255,0.1);padding:12px;border-radius:8px;border:1px solid rgba(130,202,255,0.2);backdrop-filter:blur(10px);transition:all 0.3s ease;cursor:pointer;" onclick="window.open('https://scholar.google.com/citations?user=bh-uRFMAAAAJ', '_blank')">
+                        <div style="font-size:0.9em;color:#fff;font-weight:bold;">Trevor Darrell</div>
+                    </div>
+                    <div style="background:rgba(130,202,255,0.1);padding:12px;border-radius:8px;border:1px solid rgba(130,202,255,0.2);backdrop-filter:blur(10px);transition:all 0.3s ease;cursor:pointer;" onclick="window.open('https://scholar.google.com/citations?user=a4unsk4AAAAJ', '_blank')">
+                        <div style="font-size:0.9em;color:#fff;font-weight:bold;">Adam Yala</div>
+                    </div>
+                    <div style="background:rgba(130,202,255,0.1);padding:12px;border-radius:8px;border:1px solid rgba(130,202,255,0.2);backdrop-filter:blur(10px);transition:all 0.3s ease;cursor:pointer;" onclick="window.open('https://scholar.google.com/citations?user=84WzBlYAAAAJ', '_blank')">
+                        <div style="font-size:0.9em;color:#fff;font-weight:bold;">Dawn Song</div>
+                    </div>
+                    <div style="background:rgba(130,202,255,0.1);padding:12px;border-radius:8px;border:1px solid rgba(130,202,255,0.2);backdrop-filter:blur(10px);transition:all 0.3s ease;cursor:pointer;" onclick="window.open('https://scholar.google.com/citations?user=a_dbdxAAAAAJ', '_blank')">
+                        <div style="font-size:0.9em;color:#fff;font-weight:bold;">Benjamin Recht</div>
+                    </div>
+                    <div style="background:rgba(130,202,255,0.1);padding:12px;border-radius:8px;border:1px solid rgba(130,202,255,0.2);backdrop-filter:blur(10px);transition:all 0.3s ease;cursor:pointer;" onclick="window.open('https://scholar.google.com/citations?user=aO8KpGcAAAAJ', '_blank')">
+                        <div style="font-size:0.9em;color:#fff;font-weight:bold;">Jiantao Jiao</div>
+                    </div>
+                    <div style="background:rgba(130,202,255,0.1);padding:12px;border-radius:8px;border:1px solid rgba(130,202,255,0.2);backdrop-filter:blur(10px);transition:all 0.3s ease;cursor:pointer;" onclick="window.open('https://scholar.google.com/citations?user=LKv32bgAAAAJ', '_blank')">
+                        <div style="font-size:0.9em;color:#fff;font-weight:bold;">Jacob Steinhardt</div>
+                    </div>
+                    <div style="background:rgba(130,202,255,0.1);padding:12px;border-radius:8px;border:1px solid rgba(130,202,255,0.2);backdrop-filter:blur(10px);transition:all 0.3s ease;cursor:pointer;" onclick="window.open('https://scholar.google.com/citations?user=vtwH6GkAAAAJ', '_blank')">
+                        <div style="font-size:0.9em;color:#fff;font-weight:bold;">Pieter Abbeel</div>
+                    </div>
+                    <div style="background:rgba(130,202,255,0.1);padding:12px;border-radius:8px;border:1px solid rgba(130,202,255,0.2);backdrop-filter:blur(10px);transition:all 0.3s ease;cursor:pointer;" onclick="window.open('https://scholar.google.com/citations?user=B96GkdgAAAAJ', '_blank')">
+                        <div style="font-size:0.9em;color:#fff;font-weight:bold;">Joseph E. Gonzalez</div>
+                    </div>
+                    <div style="background:rgba(130,202,255,0.1);padding:12px;border-radius:8px;border:1px solid rgba(130,202,255,0.2);backdrop-filter:blur(10px);transition:all 0.3s ease;cursor:pointer;" onclick="window.open('https://scholar.google.com/citations?user=_pv1sEcAAAAJ', '_blank')">
+                        <div style="font-size:0.9em;color:#fff;font-weight:bold;">Ahmed M. Alaa</div>
+                    </div>
+                    <div style="background:rgba(130,202,255,0.1);padding:12px;border-radius:8px;border:1px solid rgba(130,202,255,0.2);backdrop-filter:blur(10px);transition:all 0.3s ease;cursor:pointer;" onclick="window.open('https://scholar.google.com/citations?user=Wi25oKoAAAAJ', '_blank')">
+                        <div style="font-size:0.9em;color:#fff;font-weight:bold;">Xiaoyu (Rayne) Zheng</div>
+                    </div>
+                    <div style="background:rgba(130,202,255,0.1);padding:12px;border-radius:8px;border:1px solid rgba(130,202,255,0.2);backdrop-filter:blur(10px);transition:all 0.3s ease;cursor:pointer;" onclick="window.open('https://scholar.google.com/citations?user=B847xq8AAAAJ', '_blank')">
+                        <div style="font-size:0.9em;color:#fff;font-weight:bold;">Christian Borgs</div>
+                    </div>
+                    <div style="background:rgba(130,202,255,0.1);padding:12px;border-radius:8px;border:1px solid rgba(130,202,255,0.2);backdrop-filter:blur(10px);transition:all 0.3s ease;cursor:pointer;" onclick="window.open('https://scholar.google.com/citations?user=_tNCgxMAAAAJ', '_blank')">
+                        <div style="font-size:0.9em;color:#fff;font-weight:bold;">Anil Aswani</div>
+                    </div>
+                    <div style="background:rgba(130,202,255,0.1);padding:12px;border-radius:8px;border:1px solid rgba(130,202,255,0.2);backdrop-filter:blur(10px);transition:all 0.3s ease;cursor:pointer;" onclick="window.open('https://scholar.google.com/citations?user=UgHB5oAAAAAJ', '_blank')">
+                        <div style="font-size:0.9em;color:#fff;font-weight:bold;">Anca D Dragan</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Launch Button -->
+            <button id="launch-btn" class="launch-btn-shadow" style="background:linear-gradient(135deg, #1976d2 0%, #82caff 100%);color:#fff;border:none;padding:20px 56px;border-radius:50px;cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:1.3em;font-weight:bold;transition:all 0.3s ease;position:relative;overflow:hidden;animation:fadeInUp 1s ease-out 0.8s both;">
+                <span style="position:relative;z-index:2;">Launch</span>
+                <div style="position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent);transition:left 0.5s;"></div>
+            </button>
+        </div>
+        
+        <!-- Footer -->
+        <div style="position:absolute;bottom:24px;left:50%;transform:translateX(-50%);font-family:'JetBrains Mono',monospace;color:rgba(255,255,255,0.5);font-size:0.9em;animation:fadeIn 1s ease-out 1s both;">
+            Created by Nicolas Dickenmann and Daniel Kiss.
+        </div>
+    </div>
     <div id="wrapper">
         <div id="graph-container"></div>
         
         <div id="ui-overlay">
             <div id="search-container">
-                <input type="text" id="search-input" placeholder="Search for research topics, papers, or concepts...">
+                <input type="text" id="search-input" placeholder="Search for a concept or topic...">
                 <button id="search-button" onclick="performSearch()">Search</button>
                 <button id="clear-button" onclick="clearSearch()">Clear</button>
             </div>
@@ -301,27 +838,6 @@
             return true;
         }
         
-        // Load vector database
-        async function loadVectorDatabase() {
-            try {
-                console.log('Loading vector database...');
-                const response = await fetch('static/vector_database.json');
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                vectorDatabase = await response.json();
-                console.log(`Loaded ${vectorDatabase.length} vector database entries`);
-                
-                // Show a sample entry
-                if (vectorDatabase.length > 0) {
-                    console.log('Sample entry:', vectorDatabase[0]);
-                }
-            } catch (error) {
-                console.error('Error loading vector database:', error);
-                alert('Error loading vector database. Check console for details.');
-            }
-        }
-        
         // Load the data and initialize the graph
         async function initializeGraph() {
             try {
@@ -329,9 +845,6 @@
                 if (!checkLibrary()) {
                     return; // Will be called again when library loads
                 }
-                
-                // Load both datasets
-                await loadVectorDatabase();
                 
                 const response = await fetch('static/forcegraph_data_3.json');
                 graphData = await response.json();
@@ -344,13 +857,27 @@
                 // Initialize the 3D Force Graph
                 Graph = ForceGraph3D()(document.getElementById('graph-container'));
                 Graph.graphData(graphData);
-                Graph.nodeLabel(node =>
-                  `<div style="text-align:center;">
-                    <a href="https://scholar.google.com/citations?user=${node.id}" target="_blank" style="color:#82caff; text-decoration:underline; font-weight:bold;">
-                      ${node.name}
-                    </a>
-                  </div>`
-                );
+                Graph.enableNodeDrag(false);
+                Graph.onNodeClick(node => {
+                    window.open(`https://scholar.google.com/citations?user=${node.id}`, '_blank');
+                });
+                Graph.onNodeRightClick(node => {
+                    node.fx = node.x;
+                    node.fy = node.y;
+                    node.fz = node.z;
+                })
+                // Graph.nodeLabel(node =>
+                //   `<div style="text-align:center;">
+                //     <a href="https://scholar.google.com/citations?user=${node.id}" target="_blank" style="color:#82caff; text-decoration:underline; font-weight:bold;">
+                //       ${node.name}
+                //     </a>
+                //   </div>`
+                // );
+                Graph.onNodeDragEnd(node => {
+                    node.fx = node.x;
+                    node.fy = node.y;
+                    node.fz = node.z;
+                });
                 Graph.nodeColor(node => node.color);
                 Graph.nodeRelSize(6);
                 Graph.linkColor(link => {
@@ -360,16 +887,15 @@
                 });
                 
                 Graph.linkWidth(1);
-                Graph.d3Force('charge').strength(-400);
-                Graph.d3Force('link').distance(100);
-                Graph.onNodeClick(node => {
-                    window.open(`https://scholar.google.com/citations?user=${node.id}`, '_blank');
-                });
+                Graph.d3Force('charge').strength(-400).damping(0.9);
+                Graph.d3Force('link').distance(100).damping(0.9);
                 Graph.onBackgroundClick(() => {
                     // No color reset needed
                 });
                 
                 Graph.linkOpacity(1.0);
+                
+                Graph.controls().dampingFactor = 0.25;
                 
             } catch (error) {
                 console.error('Error loading data:', error);
@@ -443,25 +969,13 @@
                 
                 colorNodesBySearchResults(data.results);
                 
+                // Show the clear button after successful search
+                document.getElementById('clear-button').style.display = 'inline-block';
+                
             } catch (error) {
                 console.error('Error performing search:', error);
                 alert('Search failed. Make sure the search API is running on port 5000.');
             }
-        }
-        
-        // --- NODE CLICK HANDLER ---
-        function onNodeClick(node) {
-            // Set all nodes to #333 except the clicked node
-            graphData.nodes.forEach(n => {
-                n.color = (n.id === node.id) ? clickedColor : '#333';
-            });
-            lastClickedNodeId = node.id;
-            Graph.nodeColor(n => n.color);
-            Graph.linkColor(link => {
-                let targetId = typeof link.target === 'object' ? link.target.id : link.target;
-                let targetNode = graphData.nodes.find(n => n.id === targetId);
-                return targetNode && targetNode.color ? targetNode.color : '#333';
-            });
         }
         
         // --- CLEAR SEARCH ---
@@ -477,8 +991,10 @@
                 let targetNode = graphData.nodes.find(n => n.id === targetId);
                 return targetNode && targetNode.color ? targetNode.color : defaultColor;
             });
+            // Hide the clear button after clearing
+            document.getElementById('clear-button').style.display = 'none';
             // Reload the graph to reset camera and view
-            initializeGraph();
+            //initializeGraph();
         }
         
         // Initialize everything
@@ -500,6 +1016,63 @@
                 Graph.height(window.innerHeight);
             }
         });
+        
+        // Mobile-specific optimizations
+        function initializeMobileOptimizations() {
+            // Detect mobile device
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+            
+            if (isMobile && Graph) {
+                // Optimize graph for mobile
+                Graph.nodeRelSize(4); // Smaller nodes on mobile
+                Graph.d3Force('charge').strength(-300); // Less repulsion
+                Graph.d3Force('link').distance(80); // Shorter links
+                
+                // Disable node dragging on mobile for better performance
+                Graph.enableNodeDrag(false);
+                
+                // Add touch-friendly controls
+                Graph.controls().enabled = true;
+                Graph.controls().autoRotate = false;
+                Graph.controls().autoRotateSpeed = 0;
+                
+                // Optimize for touch interactions
+                Graph.onNodeClick(node => {
+                    // Add a small delay to prevent accidental clicks
+                    setTimeout(() => {
+                        window.open(`https://scholar.google.com/citations?user=${node.id}`, '_blank');
+                    }, 100);
+                });
+                
+                // Prevent zoom on double tap
+                let lastTouchEnd = 0;
+                document.addEventListener('touchend', function (event) {
+                    const now = (new Date()).getTime();
+                    if (now - lastTouchEnd <= 300) {
+                        event.preventDefault();
+                    }
+                    lastTouchEnd = now;
+                }, false);
+                
+                // Prevent zoom on input focus (iOS)
+                const searchInput = document.getElementById('search-input');
+                if (searchInput) {
+                    searchInput.addEventListener('focus', function() {
+                        // Set a small timeout to allow the virtual keyboard to appear
+                        setTimeout(() => {
+                            window.scrollTo(0, 0);
+                        }, 100);
+                    });
+                }
+            }
+        }
+        
+        // Call mobile optimizations after graph initialization
+        const originalInitializeGraph = initializeGraph;
+        initializeGraph = async function() {
+            await originalInitializeGraph();
+            initializeMobileOptimizations();
+        };
 
         function showResultCards(results) {
             const container = document.getElementById('result-cards-container');
@@ -551,7 +1124,7 @@
             // Add the zoom button
             const btnContainer = document.getElementById('zoom-to-node-btn-container');
             if (btnContainer) {
-                btnContainer.innerHTML = `<button id="zoom-to-node-btn" style="background:#1976d2;color:#fff;border:none;padding:8px 18px;border-radius:5px;cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:1em;">Zoom to Professor on Graph</button>`;
+                btnContainer.innerHTML = `<button id="zoom-to-node-btn" style="background:linear-gradient(135deg, #1976d2 0%, #82caff 100%);color:#fff;border:none;padding:12px 20px;border-radius:8px;cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:1em;font-weight:bold;transition:all 0.3s ease;box-shadow:0 4px 16px rgba(25,118,210,0.3);">Zoom to Professor on Graph</button>`;
                 document.getElementById('zoom-to-node-btn').onclick = function() {
                     zoomToNode(result.author_id);
                     closeAbstractModal();
@@ -576,6 +1149,30 @@
 
         function closeAbstractModal() {
             document.getElementById('abstract-modal').style.display = 'none';
+        }
+
+        // Hide launch screen on button click
+        document.addEventListener('DOMContentLoaded', function() {
+            const launchBtn = document.getElementById('launch-btn');
+            if (launchBtn) {
+                launchBtn.onclick = function() {
+                    document.getElementById('launch-screen').style.display = 'none';
+                    document.getElementById('search-container').style.display = 'flex'; // Show search container
+                };
+            }
+            
+            // Load author statistics for the launch screen
+            loadAuthorStats();
+        });
+        
+        // Function to load and display author statistics
+        async function loadAuthorStats() {
+                // Set fallback values if loading fails
+                document.getElementById('first-order-count').textContent = '14';
+                document.getElementById('second-order-count').textContent = '604';
+                document.getElementById('third-order-count').textContent = '12,275';
+                document.getElementById('total-authors').textContent = '12,336';
+                document.getElementById('total-number-of-connections').textContent = '19,956';
         }
 
     </script>
