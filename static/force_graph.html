@@ -952,7 +952,7 @@
             
             try {
                 // Call the Flask API for true cosine similarity search
-                const response = await fetch('http://localhost:5000/search', {
+                const response = await fetch('/search', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -974,7 +974,7 @@
                 
             } catch (error) {
                 console.error('Error performing search:', error);
-                alert('Search failed. Make sure the search API is running on port 5000.');
+                alert('Search failed. Make sure the search API is running.');
             }
         }
         
@@ -1106,7 +1106,7 @@
             modal.style.display = 'flex';
 
             console.log("Requesting Gemini explanation for:", result.author_id, lastSearchQuery);
-            const response = await fetch('http://127.0.0.1:5000/explain_match', {
+            const response = await fetch('/explain_match', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ query: lastSearchQuery, author_id: result.author_id })
