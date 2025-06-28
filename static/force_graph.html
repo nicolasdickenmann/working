@@ -430,17 +430,22 @@
             }
             
             #first-level-authors > div:last-child {
-                grid-template-columns: 1fr !important;
-                gap: 12px !important;
-                max-width: 320px !important;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 8px !important;
+                max-width: 400px !important;
             }
             
             #first-level-authors > div:last-child > div {
-                padding: 12px !important;
+                padding: 8px !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                min-height: 40px !important;
             }
             
             #first-level-authors > div:last-child > div > div:first-child {
-                font-size: 0.9em !important;
+                font-size: 0.8em !important;
+                text-align: center !important;
             }
             
             #first-level-authors > div:last-child > div > div:last-child {
@@ -609,12 +614,22 @@
             }
             
             #first-level-authors > div:last-child {
-                max-width: 280px !important;
-                gap: 10px !important;
+                grid-template-columns: repeat(2, 1fr) !important;
+                max-width: 320px !important;
+                gap: 6px !important;
             }
             
             #first-level-authors > div:last-child > div {
-                padding: 10px !important;
+                padding: 6px !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                min-height: 35px !important;
+            }
+            
+            #first-level-authors > div:last-child > div > div:first-child {
+                font-size: 0.75em !important;
+                text-align: center !important;
             }
             
             .result-card {
@@ -719,6 +734,10 @@
             
             #first-level-authors > div:last-child > div {
                 padding: 10px !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                min-height: 55px !important;
             }
         }
         
