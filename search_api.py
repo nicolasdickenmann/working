@@ -20,7 +20,7 @@ if not GOOGLE_API_KEY:
     raise ValueError("GOOGLE_API_KEY not found in environment variables")
 
 genai.configure(api_key=GOOGLE_API_KEY)
-EMBEDDING_MODEL = 'embedding-001'
+EMBEDDING_MODEL = 'gemini-embedding-001'
 
 # Configure Supabase
 SUPABASE_URL = os.getenv('SUPABASE_URL')
