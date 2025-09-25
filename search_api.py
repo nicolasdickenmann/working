@@ -184,7 +184,7 @@ def explain_match():
 
     # Call Gemini
     try:
-        model = genai.GenerativeModel('models/gemini-1.5-pro')
+        model = genai.GenerativeModel('models/gemini-2.5-pro')
         response = model.generate_content(prompt)
         explanation = response.text
     except Exception as e:

@@ -25,7 +25,7 @@ except KeyError:
 
 
 # The embedding model to use
-EMBEDDING_MODEL = 'embedding-001'
+EMBEDDING_MODEL = 'gemini-embedding-001'
 DB_FILE_PATH = 'vectorbig.json'
 
 # --- Core Functions ---

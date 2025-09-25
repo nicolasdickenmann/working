@@ -5,17 +5,17 @@ CREATE EXTENSION IF NOT EXISTS vector;
 CREATE TABLE IF NOT EXISTS embeddings (
     id SERIAL PRIMARY KEY,
     text TEXT NOT NULL,
-    embedding vector(768), -- Adjust dimension based on your embedding model
+    embedding halfvec(3072), -- Updated for gemini-embedding-001 model using halfvec
     author_ids TEXT[] NOT NULL,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
--- Create index for similarity search
-CREATE INDEX IF NOT EXISTS embeddings_embedding_idx ON embeddings USING ivfflat (embedding vector_cosine_ops);
+-- Create index for similarity search using halfvec (supports up to 4000 dimensions)
+CREATE INDEX IF NOT EXISTS embeddings_embedding_idx ON embeddings USING hnsw (embedding halfvec_cosine_ops);
 
 -- Create function for similarity search
 CREATE OR REPLACE FUNCTION match_embeddings(
-    query_embedding vector(768),
+    query_embedding halfvec(3072),
     match_threshold float,
     match_count int
 )
